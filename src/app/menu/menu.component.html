@@ -1,25 +1,22 @@
-<app-header [navbarBrandRouterLink]="['/dashboard']" [fixed]="true"
-  [navbarBrandFull]="{src: 'assets/img/brand/sygnet.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
-  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
-  [sidebarToggler]="'lg'" [asideMenuToggler]="'lg'">
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown" dropdown placement="bottom right">
-      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
-        dropdownToggle (click)="false">
-        <img src="assets/img/avatars/danish2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" />
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
-        <div class="divider"></div>
-        <a class="dropdown-item" (click)="logUserOut()"><i class="fa fa-lock"></i> Logout</a>
-      </div>
+<app-header [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/sygnet.svg', width: 89, height: 25, alt: 'codesArrival Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'codesArrival Logo'}">
+  <ul class="nav ml-auto">
+    <li class="nav-item" placement="bottom right">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item" placement="bottom right">
+      <a class="nav-link" href="#">Stores</a>
+    </li>
+    <li class="nav-item" placement="bottom right">
+      <a class="nav-link" href="#">Categories</a>
+    </li>
+    <li class="nav-item" placement="bottom right">
+      <a class="nav-link" href="#">Blogs</a>
     </li>
   </ul>
 </app-header>
 <div class="app-body">
-  <app-sidebar [fixed]="true" [display]="'lg'">
-    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebarMinimized"></app-sidebar-nav>
-    <app-sidebar-minimizer></app-sidebar-minimizer>
-  </app-sidebar>
   <main class="main">
     <div class="container-fluid">
       <router-outlet></router-outlet>
