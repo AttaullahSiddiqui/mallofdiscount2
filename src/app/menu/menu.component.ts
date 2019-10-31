@@ -21,13 +21,15 @@ export class MenuComponent implements AfterViewInit {
     });
   }
   ngOnDestroy(): void { this.changes.disconnect() }
-  ngAfterViewInit() {
-    for (var i = 0; i < 3; i++) {
-      (<HTMLElement>document.getElementsByClassName('navbar-toggler')[i]).classList.remove('d-lg-block');
-      (<HTMLElement>document.getElementsByClassName('navbar-toggler')[i]).classList.remove('d-md-block');
-      (<HTMLElement>document.getElementsByClassName('navbar-toggler')[i]).classList.remove('d-lg-none');
-      (<HTMLElement>document.getElementsByClassName('navbar-toggler')[i]).classList.add('d-none');
-    }
+  ngAfterViewInit() { }
 
+  openNav(e) {
+    e.preventDefault();
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  closeNav(e) {
+    e.preventDefault();
+    document.getElementById("mySidenav").style.width = "0";
   }
 }

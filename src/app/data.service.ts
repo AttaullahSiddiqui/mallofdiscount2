@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { finalize } from "rxjs/operators";
 import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/operators";
-import { AngularFireStorage } from '@angular/fire/storage';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private _http: HttpClient, private storage: AngularFireStorage) { }
+  constructor(private _http: HttpClient) { }
   fetchAPI(url) {
     return this._http.get(url)
       .pipe(map(res => JSON.parse(JSON.stringify(res))));
@@ -41,16 +40,16 @@ export class DataService {
     return this._http.post(url, updatedArray)
       .pipe(map(res => JSON.parse(JSON.stringify(res))));
   }
-  storeImage(filePath, selectedImage, cb) {
-    const fileRef = this.storage.ref(filePath);
-    return this.storage.upload(filePath, selectedImage).snapshotChanges().pipe(
-      finalize(() => {
-        fileRef.getDownloadURL().subscribe((url) => {
-          cb(undefined, url);
-        }, (err) => { cb(err); })
-      })
-    );
-  }
+  // storeImage(filePath, selectedImage, cb) {
+  //   const fileRef = this.storage.ref(filePath);
+  //   return this.storage.upload(filePath, selectedImage).snapshotChanges().pipe(
+  //     finalize(() => {
+  //       fileRef.getDownloadURL().subscribe((url) => {
+  //         cb(undefined, url);
+  //       }, (err) => { cb(err); })
+  //     })
+  //   );
+  // }
   // addUser() {
   //   var userData = {
   //     userName: "danish",
