@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',

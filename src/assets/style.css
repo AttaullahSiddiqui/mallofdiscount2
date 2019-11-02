@@ -719,7 +719,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   padding: 0;
   height: 100vh;
   width: 100%;
-  background: url("../images/error-bg.jpg") no-repeat center;
+  /* background: url("../images/error-bg.jpg") no-repeat center; */
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -846,7 +846,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   border-color: #ff7043;
 }
 .min_container .section_row .left_side_bar .categories .categories_icon li .tooltip:before {
-  background: no-repeat url(../images/icons/arrow.png);
+  /* background: no-repeat url(../images/icons/arrow.png); */
   width: 11px;
 }
 .min_container .section_row .left_side_bar .categories .categories_icon li .tooltip:after {
@@ -1227,7 +1227,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   top: 6px;
   height: 12px;
   width: 12px;
-  background: url("../images/icons/quot.png") no-repeat;
+  /* background: url("../images/icons/quot.png") no-repeat; */
 }
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 {
   font: 400 14px/1 "Lato", sans-serif;
@@ -3277,7 +3277,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   background: #232f42;
 }
 .footer_area .footer_row {
-  padding: 100px 0px 60px;
+  padding: 25px 20px 0;
   width: 1590px;
   margin: 0 auto;
   margin-bottom: 0;
@@ -3394,7 +3394,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   top: 6px;
   height: 12px;
   width: 12px;
-  background: url("../images/icons/quot-2.png") no-repeat;
+  /* background: url("../images/icons/quot-2.png") no-repeat; */
 }
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 {
   font: 400 14px/1 "Lato", sans-serif;
@@ -3902,7 +3902,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     padding: 15px;
   }
   .middle_section .post .post_content .author_area .author .media_body {
-    display: none;
+    /* display: none; */
   }
   .middle_section .post .like_comment_area .btn_floating h6, .middle_section .post .like_comment_area .updown_btn .count_n {
     display: none;

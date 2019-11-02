@@ -2,10 +2,9 @@
     border: 8px solid #E26139;
     padding:5px
 }
-// td{
-//     font-size:1.3em;
-//     vertical-align: auto !important;
-// }
+td{
+    font-size:1.3em;
+}
 // th{
 //     font-size:1.45em
 // }
@@ -20,4 +19,37 @@
 }
 .storeIcon{
     font-size: 1.4em;
+}
+.dealsHead{
+    font-weight: normal !important;
+    color:#789aaf !important;
+    font-size: 1.4em !important;
+}
+.visitBtn{
+    width:40px !important;
+    height:40px !important;
+    line-height: 40px !important;
+}
+.btn_floating:hover{
+    cursor: grab !important;
+}
+.dealCard{
+    margin:0 !important
+}
+.interests{
+    padding-top: 0 !important;
+}
+.right_sidebar_iner{
+    padding-top: 15px !important;
+}
+.display-4{
+    font-size: 3.2em;
+}
+.orangeBtn{
+    background-color:#E26139;
+    border:none;
+    color:white
+}
+.footer_row{
+    
 }
