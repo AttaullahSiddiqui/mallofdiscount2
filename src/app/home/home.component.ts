@@ -6,18 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  slides: any[] = [];
-  constructor() {
-    for (let i = 0; i < 4; i++) {
-      this.addSlide();
-    }
-  }
+  constructor() { }
 
-  ngOnInit() {
-  }
-  addSlide(): void {
-    this.slides.push({
-      image: `https://lorempixel.com/900/500/abstract/${this.slides.length % 8 + 1}/`
-    });
-  }
+  ngOnInit() { }
 }

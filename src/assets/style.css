@@ -768,7 +768,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   background: #eff3f5;
 }
 .min_container.min_pages {
-  padding-bottom: 80px;
+  padding-bottom: 20px;
 }
 .min_container .section_row {
   display: flex;

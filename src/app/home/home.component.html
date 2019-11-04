@@ -1,35 +1,22 @@
-<br class="d-none d-lg-block d-xl-block">
-<!-- <div class="container">
-    <h2>Carousel Example</h2>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="../../assets/images/banner.jpg" alt="Los Angeles" style="width:100%;">
-            </div>
-            <div class="item">
-                <img src="../../assets/images/banner-2.jpg" alt="Chicago" style="width:100%;">
-            </div>
-        </div>
-    </div>
-</div> -->
-<div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                <img class="d-block w-100" src="../../assets/images/banner.jpg" alt="First slide">
-            </div>
-            <div class="item">
-                <img class="d-block w-100" src="../../assets/images/banner-2.jpg" alt="Second slide">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row mb-0">
+<ngb-carousel class="height87" interval="2500" [pauseOnHover]="false">
+    <ng-template ngbSlide style="height: 85vh;">
+        <img src="../../assets/images/banner.jpg" class="height87" alt="Random first slide">
+    </ng-template>
+    <ng-template ngbSlide>
+        <img src="../../assets/images/banner-2.jpg" class="height87" alt="Random second slide">
+    </ng-template>
+    <ng-template ngbSlide>
+        <img src="../../assets/images/banner3.jpg" class="height87" alt="Random third slide">
+    </ng-template>
+    <ng-template ngbSlide>
+        <img src="../../assets/images/banner4.jpg" class="height87" alt="Random third slide">
+    </ng-template>
+    <ng-template ngbSlide>
+        <img src="../../assets/images/banner5.jpg" class="height87" alt="Random third slide">
+    </ng-template>
+</ngb-carousel>
+<br>
+<div class="row mb-0" style="margin:auto 30px">
     <div class="col-sm-6 col-lg-3">
         <div class="brand-card">
             <div class="brand-card-header">
@@ -328,60 +315,11 @@
                                     <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/2.jpg" class="img-avatar" alt="">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Avram Tarasios kjdfhaukiu yh uay oiuahj hasg</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/1.jpg" class="img-avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div> Yiorgos Avraamu</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/2.jpg" class="img-avatar" alt="">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Avram Tarasios kjdfhaukiu yh uay oiuahj hasg</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <!-- left side bar -->
         <div class="col">
             <div class="left_side_bar">
                 <div class="interests">
@@ -409,7 +347,6 @@
                 </div>
             </div>
         </div>
-        <!-- Right side bar -->
         <div class="right_side_bar col">
             <div class="right_sidebar_iner">
                 <div class="popular_posts">
@@ -470,138 +407,3 @@
     </div>
 </section>
 
-<footer class="footer_area">
-    <div class="footer_row row" style="padding:25px 20px auto !important">
-        <div class="col l3 m6 footer_col">
-            <div class="popular_posts">
-                <h3 class="categories_tittle">Popular Blogs</h3>
-                <div class="row valign-wrapper popular_item">
-                    <div class="col-3 p_img">
-                        <a href="#">
-                            <img src="../../assets/images/recent-post-1.jpg" alt="" class="circle responsive-img">
-                        </a>
-                    </div>
-                    <div class="col s9 p_content">
-                        <a href="">6 Signs That Your Skin Is Lacking Water</a>
-                    </div>
-                </div>
-                <div class="row valign-wrapper popular_item">
-                    <div class="col-3 p_img">
-                        <a href="#">
-                            <img src="../../assets/images/recent-post-2.jpg" alt="" class="circle responsive-img">
-                        </a>
-                    </div>
-                    <div class="col s9 p_content">
-                        <a href="">4 Winter Detox Which You Must Try</a>
-                    </div>
-                </div>
-                <div class="row valign-wrapper popular_item">
-                    <div class="col-3 p_img">
-                        <a href="#">
-                            <img src="../../assets/images/recent-post-3.jpg" alt="" class="circle responsive-img">
-                        </a>
-                    </div>
-                    <div class="col s9 p_content">
-                        <a href="">10 Most Beautiful Places Of The World</a>
-                    </div>
-                </div>
-                <div class="row valign-wrapper popular_item">
-                    <div class="col-3 p_img">
-                        <a href="#">
-                            <img src="../../assets/images/recent-post-4.jpg" alt="" class="circle responsive-img">
-                        </a>
-                    </div>
-                    <div class="col s9 p_content">
-                        <a href="">Advertising A Blessing Or A Curse</a>
-                    </div>
-                </div>
-                <div class="row valign-wrapper popular_item">
-                    <div class="col-3 p_img">
-                        <a href="#">
-                            <img src="../../assets/images/recent-post-5.jpg" alt="" class="circle responsive-img">
-                        </a>
-                    </div>
-                    <div class="col s9 p_content">
-                        <a href="">Small Changes That Make A Big Difference</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col l3 m6 footer_col footer_trending">
-            <h3 class="categories_tittle">Trending</h3>
-            <div class="trending_area">
-                <ul class="collapsible trending_collaps" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header"><i class="ion-chevron-right"></i>Healthy Environment For Self
-                            Esteem</div>
-                        <div class="collapsible-body">
-                            <div class="row collaps_wrpper">
-                                <div class="col s1 media_l">
-                                    <b>1</b>
-                                    <i class="ion-android-arrow-dropup-circle"></i>
-                                </div>
-                                <div class="col s11 media_b">
-                                    <a href="#" class="close_btn"><i class="ion-close-round"></i></a>
-                                    <p>If you will be traveling for a ski vacation, it is often difficult to know what
-                                        to pack. You may not even have a problem</p>
-                                    <h6>By <a href="#">Thomas Omalley</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="ion-chevron-right"></i>Burn The Ships</div>
-                        <div class="collapsible-body">
-                            <div class="row collaps_wrpper">
-                                <div class="col s1 media_l">
-                                    <b>1</b>
-                                    <i class="ion-android-arrow-dropup-circle"></i>
-                                </div>
-                                <div class="col s11 media_b">
-                                    <a href="#" class="close_btn"><i class="ion-close-round"></i></a>
-                                    <p>If you will be traveling for a ski vacation, it is often difficult to know what
-                                        to pack. You may not even have a problem</p>
-                                    <h6>By <a href="#">Thomas Omalley</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header active"><i class="ion-chevron-right"></i>Harness The Power Of
-                            Your Dreams</div>
-                        <div class="collapsible-body">
-                            <div class="row collaps_wrpper">
-                                <div class="col s1 media_l">
-                                    <b>1</b>
-                                    <i class="ion-android-arrow-dropup-circle"></i>
-                                </div>
-                                <div class="col s11 media_b">
-                                    <a href="#" class="close_btn"><i class="ion-close-round"></i></a>
-                                    <p>If you will be traveling for a ski vacation, it is often difficult to know what
-                                        to pack. You may not even have a problem</p>
-                                    <h6>By <a href="#">Thomas Omalley</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col l3 m6 footer_col">
-            <div class="social_Sharing" style="padding-top: 0;">
-                <h3 class="categories_tittle">Social Sharing</h3>
-                <ul class="social_icon">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col l3 m6 footer_col">
-            <img src="images/advertis-3.jpg" alt="" class="responsive-img">
-        </div>
-    </div>
-    <div class="copy_right">
-        � 2019 <a href="">codesArrival</a>. All rights reserved.
-    </div>
-</footer>
