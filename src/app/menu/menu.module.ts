@@ -12,6 +12,7 @@ import { PrivacyComponent } from '../privacy/privacy.component';
 import { TermsComponent } from '../terms/terms.component';
 import { CategoriesComponent } from '../categories/categories.component';
 import { StoresComponent } from '../stores/stores.component';
+import { BlogsComponent } from '../blogs/blogs.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { StoresComponent } from '../stores/stores.component';
         PrivacyComponent,
         TermsComponent,
         CategoriesComponent,
-        StoresComponent
+        StoresComponent,
+        BlogsComponent
     ]
 })
 
