@@ -25,7 +25,6 @@
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/simple-line-icons/css/simple-line-icons.css",
               "src/scss/style.scss",
-              "src/assets/materialize.min.css",
               "src/assets/balloon.min.css",
               "src/assets/jqflipswitch.default.style.css",
               "src/assets/style.css"

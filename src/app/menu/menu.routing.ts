@@ -7,6 +7,8 @@ import { TermsComponent } from '../terms/terms.component';
 import { CategoriesComponent } from '../categories/categories.component';
 import { StoresComponent } from '../stores/stores.component';
 import { BlogsComponent } from '../blogs/blogs.component';
+import { CategoryComponent } from '../category/category.component';
+import { StoreComponent } from '../store/store.component';
 
 export const MenuRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -16,6 +18,8 @@ export const MenuRoutes: Routes = [
     { path: 'categories', component: CategoriesComponent },
     { path: 'stores', component: StoresComponent },
     { path: 'blogs', component: BlogsComponent },
+    { path: 'category', component: CategoryComponent },
+    { path: 'store', component: StoreComponent },
     {
         path: '', redirectTo: '/home', pathMatch: 'full',
     }
