@@ -15,6 +15,7 @@ import { StoresComponent } from '../stores/stores.component';
 import { BlogsComponent } from '../blogs/blogs.component';
 import { CategoryComponent } from '../category/category.component';
 import { StoreComponent } from '../store/store.component';
+import { BlogComponent } from '../blog/blog.component';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { StoreComponent } from '../store/store.component';
         StoresComponent,
         BlogsComponent,
         CategoryComponent,
-        StoreComponent
+        StoreComponent,
+        BlogComponent
     ]
 })
 

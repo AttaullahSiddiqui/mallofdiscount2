@@ -9,6 +9,7 @@ import { StoresComponent } from '../stores/stores.component';
 import { BlogsComponent } from '../blogs/blogs.component';
 import { CategoryComponent } from '../category/category.component';
 import { StoreComponent } from '../store/store.component';
+import { BlogComponent } from '../blog/blog.component';
 
 export const MenuRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ export const MenuRoutes: Routes = [
     { path: 'blogs', component: BlogsComponent },
     { path: 'category', component: CategoryComponent },
     { path: 'store', component: StoreComponent },
+    { path: 'blog', component: BlogComponent },
     {
         path: '', redirectTo: '/home', pathMatch: 'full',
     }
