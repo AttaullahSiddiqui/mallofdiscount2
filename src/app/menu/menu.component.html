@@ -28,57 +28,89 @@
           <ul class="search_from">
             <li class="notifications follow"><input placeholder="Search Here" type="text" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-              <ul class="dropdown-content" style="left:0 !important">
+              <ul class="dropdown-content" style="left:0 !important;max-height: 75vh;overflow-y: scroll;">
                 <li class="hed_notic">Search Results <span><i class="ion-ios-gear-outline"></i></span></li>
                 <li>
-                  <a href="#">
+                  <a>
                     <div class="media">
                       <img src="../../assets/images/profile-9.jpg" alt="" class="circle responsive-img">
                       <div class="media_body">
-                        <p><b>Dan Fisher</b> started following you.</p>
-                        <h6>544 mutual</h6>
+                        <p><b>Toyota Motors</b></p>
                         <div class="btn_group">
-                          <span class="waves-effect follow_b">Follow back</span>
-                          <span class="waves-effect">Block</span>
+                          <span class="waves-effect follow_b">Category</span>
                         </div>
                       </div>
                     </div>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <div class="media">
-                      <img src="../../assets/images/profile-12.jpg" alt="" class="circle responsive-img w_img">
-                      <div class="media_body">
-                        <p>You are now following <b>Meryl Streep</b></p>
-                        <h6>Check out her most recent updates.</h6>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
+                  <a>
                     <div class="media">
                       <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
                       <div class="media_body">
-                        <p><b>James Richardman </b>started following you.</p>
-                        <h6>90 mutual</h6>
+                        <p><b>Toyota Motors</b></p>
                         <div class="btn_group">
-                          <span class="waves-effect close_b"><i class="ion-android-close"></i></span>
-                          <span class="waves-effect">Block</span>
+                          <span class="waves-effect">Store</span>
                         </div>
                       </div>
                     </div>
                   </a>
                 </li>
-                <li><a href="" class="waves-effect chack_all_btn">Search in Detail</a></li>
+                <li>
+                  <a>
+                    <div class="media">
+                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
+                      <div class="media_body">
+                        <p><b>Toyota Motors</b></p>
+                        <div class="btn_group">
+                          <span class="waves-effect confirm">Coupon</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <div class="media">
+                      <img src="../../assets/images/profile-9.jpg" alt="" class="circle responsive-img">
+                      <div class="media_body">
+                        <p><b>Toyota Motors</b></p>
+                        <div class="btn_group">
+                          <span class="waves-effect follow_b">Category</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <div class="media">
+                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
+                      <div class="media_body">
+                        <p><b>Toyota Motors</b></p>
+                        <div class="btn_group">
+                          <span class="waves-effect">Store</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <div class="media">
+                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
+                      <div class="media_body">
+                        <p><b>Toyota Motors</b></p>
+                        <div class="btn_group">
+                          <span class="waves-effect confirm">Coupon</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
               </ul>
             </li>
-            <li><a href="" class="search_icon"><i class="icon-magnifier"></i></a>
-
-            </li>
-
-
+            <li><a href="" class="search_icon"><i class="icon-magnifier"></i></a></li>
           </ul>
         </li>
       </ul>
@@ -86,7 +118,7 @@
     </div>
   </div>
 </nav>
-<div class="app-body">
+<div class="app-body" style="margin-top: 80px;">
   <main class="main">
     <div class="container-fluid rmHorizontalPadding">
       <router-outlet></router-outlet>
@@ -139,16 +171,6 @@
             <a href="">Advertising A Blessing Or A Curse</a>
           </div>
         </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col-3 p_img">
-            <a href="#">
-              <img src="../../assets/images/recent-post-5.jpg" alt="" class="circle responsive-img">
-            </a>
-          </div>
-          <div class="col s9 p_content">
-            <a href="">Small Changes That Make A Big Difference</a>
-          </div>
-        </div>
       </div>
     </div>
     <div class="col l3 m6 footer_col footer_trending text-center">
@@ -158,94 +180,39 @@
       <div class="popular_posts">
         <div class="row valign-wrapper popular_item">
           <div class="col s9 p_content">
-            <a href="">Home</a>
+            <a routerLink="/home">Home</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">
           <div class="col s9 p_content">
-            <a href="">Stores</a>
+            <a routerLink="/stores">Stores</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">
           <div class="col s9 p_content">
-            <a href="">Caategories</a>
+            <a routerLink="/categories">Caategories</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">
           <div class="col s9 p_content">
-            <a href="">Blogs</a>
+            <a routerLink="/blogs">Blogs</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">
           <div class="col s9 p_content">
-            <a href="">About</a>
+            <a routerLink="/about">About</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">>
           <div class="col s9 p_content">
-            <a href="">Privacy & Policy</a>
+            <a routerLink="/privacy">Privacy & Policy</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">>
           <div class="col s9 p_content">
-            <a href="">Terms & Conditions</a>
+            <a routerLink="/termsandconditions">Terms & Conditions</a>
           </div>
         </div>
-        <!-- <ul class="collapsible trending_collaps" data-collapsible="accordion">
-                    <li>
-                        <div class="collapsible-header"><i class="ion-chevron-right"></i>Healthy Environment For Self
-                            Esteem</div>
-                        <div class="collapsible-body">
-                            <div class="row collaps_wrpper">
-                                <div class="col s1 media_l">
-                                    <b>1</b>
-                                    <i class="ion-android-arrow-dropup-circle"></i>
-                                </div>
-                                <div class="col s11 media_b">
-                                    <a href="#" class="close_btn"><i class="ion-close-round"></i></a>
-                                    <p>If you will be traveling for a ski vacation, it is often difficult to know what
-                                        to pack. You may not even have a problem</p>
-                                    <h6>By <a href="#">Thomas Omalley</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header"><i class="ion-chevron-right"></i>Burn The Ships</div>
-                        <div class="collapsible-body">
-                            <div class="row collaps_wrpper">
-                                <div class="col s1 media_l">
-                                    <b>1</b>
-                                    <i class="ion-android-arrow-dropup-circle"></i>
-                                </div>
-                                <div class="col s11 media_b">
-                                    <a href="#" class="close_btn"><i class="ion-close-round"></i></a>
-                                    <p>If you will be traveling for a ski vacation, it is often difficult to know what
-                                        to pack. You may not even have a problem</p>
-                                    <h6>By <a href="#">Thomas Omalley</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header active"><i class="ion-chevron-right"></i>Harness The Power Of
-                            Your Dreams</div>
-                        <div class="collapsible-body">
-                            <div class="row collaps_wrpper">
-                                <div class="col s1 media_l">
-                                    <b>1</b>
-                                    <i class="ion-android-arrow-dropup-circle"></i>
-                                </div>
-                                <div class="col s11 media_b">
-                                    <a href="#" class="close_btn"><i class="ion-close-round"></i></a>
-                                    <p>If you will be traveling for a ski vacation, it is often difficult to know what
-                                        to pack. You may not even have a problem</p>
-                                    <h6>By <a href="#">Thomas Omalley</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul> -->
       </div>
     </div>
     <div class="col l3 m6 footer_col text-center">
@@ -266,10 +233,10 @@
         <br>
         <br>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Your Emial ID.." aria-label="Recipient's username"
-            aria-describedby="button-addon2">
+          <textarea style="background:transparent;color:white;font-size: 1.2em;height: 36px;" class="form-control"
+            placeholder="Type here...."></textarea>
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+            <button class="btn btn-secondary" type="button" id="button-addon2">Send</button>
           </div>
         </div>
       </div>

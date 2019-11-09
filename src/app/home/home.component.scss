@@ -45,5 +45,17 @@ td{
     color:white
 }
 .height87{
-   height: 87vh;
+   height: 88vh;
+}
+.manAvatar{
+    width: 70px;
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.customImgRound{
+    display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
 }

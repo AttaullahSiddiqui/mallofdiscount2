@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // APIs location
-app.use('/api', appRoutes);
+app.use('/userDisplay', appRoutes);
 
 // mongoose.connect(CONFIG.local['url'], { useNewUrlParser: true, useCreateIndex: true });
 mongoose.connect(CONFIG.db['production'], { useNewUrlParser: true, useCreateIndex: true });

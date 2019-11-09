@@ -1,5 +1,3 @@
-var jwt = require('../utils/jwt.service');
-
 let User = require('../Models/user.model');
 let Category = require('../Models/categories.model');
 let Store = require('../Models/stores.model');

@@ -3,43 +3,38 @@ let Category = require('../Models/categories.model');
 let Store = require('../Models/stores.model');
 let Coupon = require('../Models/coupon.model');
 let Blog = require('../Models/blog.model');
+let Slider = require('../Models/slide.model');
 let resHandler = require('../utils/responseHandler');
 
 module.exports = {
-    fetchCategories: fetchCategories,
-    fetchStoresOnlyId: fetchStoresOnlyId,
-    fetchStoreById: fetchStoreById,
-    fetchStoresWithLimit: fetchStoresWithLimit,
-    fetchCouponsById: fetchCouponsById,
-    fetchBlogs: fetchBlogs,
-    fetchUsers: fetchUsers
+    fetchSlides: fetchSlides,
+    fetchTopStores: fetchTopStores,
+    fetchTopBlogs: fetchTopBlogs,
+    fetchTopDeals: fetchTopDeals
 };
 
-function fetchCategories(req, res) {
-    Category.
-        find({}).
-        skip(Number(req.query.skipNo)).
-        limit(Number(req.query.limitNo)).
-        exec(function (err, categories) {
-            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
-            else {
-                if (categories.length) res.json(resHandler.respondSuccess(categories, "Categories fetched successfully", 2));
-                else res.json(resHandler.respondError("Unable to fetch categories", -3));
-            }
-        });
+function fetchSlides(req, res) {
+    Slider.find({}, 'img', function (err, slides) {
+        if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+        else if (!slides) res.json(resHandler.respondError("Unable to fetch slides at the moment", -3));
+        else res.json(resHandler.respondSuccess(slides, "Slides fetched successfully", 2));
+    })
+    // Category.
+    //     find({}).
+    //     skip(Number(req.query.skipNo)).
+    //     limit(Number(req.query.limitNo)).
+    //     exec(function (err, categories) {
+    //         if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+    //         else {
+    //             if (categories.length) res.json(resHandler.respondSuccess(categories, "Categories fetched successfully", 2));
+    //             else res.json(resHandler.respondError("Unable to fetch categories", -3));
+    //         }
+    //     });
 }
 
-function fetchStoresOnlyId(req, res) {
-    Store.find({}, 'name _id', function (err, stores) {
-        if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
-        else if (!stores) res.json(resHandler.respondError("No Stores at the moment", -3));
-        else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
-    })
-}
-function fetchStoresWithLimit(req, res) {
+function fetchTopStores(req, res) {
     Store.
-        find({}, 'name _id').
-        skip(Number(req.query.skipNo)).
+        find({}, 'img').
         limit(Number(req.query.limitNo)).
         exec(function (err, stores) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
@@ -48,8 +43,25 @@ function fetchStoresWithLimit(req, res) {
                 else res.json(resHandler.respondError("Unable to fetch Stores at the moment", -3));
             }
         });
+    // Store.find({}, 'name _id', function (err, stores) {
+    //     if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+    //     else if (!stores) res.json(resHandler.respondError("No Stores at the moment", -3));
+    //     else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
+    // })
 }
-function fetchStoreById(req, res) {
+function fetchTopBlogs(req, res) {
+    Blog.
+        find({}, 'title img').
+        limit(Number(req.query.limitNo)).
+        exec(function (err, blogs) {
+            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+            else {
+                if (blogs.length) res.json(resHandler.respondSuccess(blogs, "Blogs fetched successfully", 2));
+                else res.json(resHandler.respondError("Unable to fetch Blogs at the moment", -3));
+            }
+        });
+}
+function fetchTopDeals(req, res) {
     Store.findById(req.query._id, function (err, store) {
         if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
         else if (store.length) res.json(resHandler.respondError("No such Store at the moment", -3));

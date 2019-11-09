@@ -1,173 +1,14 @@
 <ngb-carousel class="height87" interval="2500" [pauseOnHover]="false">
-    <ng-template ngbSlide style="height: 85vh;">
-        <img src="../../assets/images/banner.jpg" class="height87" alt="Random first slide">
-    </ng-template>
-    <ng-template ngbSlide>
-        <img src="../../assets/images/banner-2.jpg" class="height87" alt="Random second slide">
-    </ng-template>
-    <ng-template ngbSlide>
-        <img src="../../assets/images/banner3.jpg" class="height87" alt="Random third slide">
-    </ng-template>
-    <ng-template ngbSlide>
-        <img src="../../assets/images/banner4.jpg" class="height87" alt="Random third slide">
-    </ng-template>
-    <ng-template ngbSlide>
-        <img src="../../assets/images/banner5.jpg" class="height87" alt="Random third slide">
+    <ng-template ngbSlide *ngFor="let slide of slideArray | keyvalue">
+        <img [src]="slide.value.img" class="height87" alt="Random first slide">
     </ng-template>
 </ngb-carousel>
 <br>
-<div class="row mb-0" style="margin:auto 30px">
-    <div class="col-sm-6 col-lg-3">
+<div class="row justify-content-md-center mb-0" style="margin:auto 30px">
+    <div class="col-sm-6 col-lg-3" *ngFor="let store of storeArray | keyvalue">
         <div class="brand-card">
             <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
+                <img [src]="store.value.img" class="rounded-circle roundImg" width="100" height="100" />
             </div>
             <div class="brand-card-body">
                 <div>
@@ -188,7 +29,7 @@
 </div>
 
 <ul class="tranding_select tabs">
-    <li class="tab"><a href="" class="waves-effect btn active">View all Stores</a></li>
+    <li class="tab"><a routerLink="/stores" class="waves-effect btn active">View all Stores</a></li>
 </ul>
 <br>
 
@@ -340,9 +181,10 @@
                 <div class="social_Sharing">
                     <h3 class="categories_tittle">Social Sharing</h3>
                     <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="googleplus"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a class="facebook"><i class="fa fa-facebook"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -351,54 +193,14 @@
             <div class="right_sidebar_iner">
                 <div class="popular_posts">
                     <h3 class="categories_tittle">Popular Blogs</h3>
-                    <div class="row valign-wrapper popular_item">
+                    <div class="row valign-wrapper popular_item" *ngFor="let blog of blogArray | keyvalue">
                         <div class="col-3 p_img">
-                            <a href="#">
-                                <img src="../../assets/images/recent-post-1.jpg" alt="" class="circle responsive-img">
-                            </a>
+                            <div class="manAvatar">
+                                <img [src]="blog.value.img" class="customImgRound">
+                            </div>
                         </div>
                         <div class="col s9 p_content">
-                            <a href="">6 Signs That Your Skin Is Lacking Water</a>
-                        </div>
-                    </div>
-                    <div class="row valign-wrapper popular_item">
-                        <div class="col-3 p_img">
-                            <a href="#">
-                                <img src="../../assets/images/recent-post-2.jpg" alt="" class="circle responsive-img">
-                            </a>
-                        </div>
-                        <div class="col s9 p_content">
-                            <a href="">4 Winter Detox Which You Must Try</a>
-                        </div>
-                    </div>
-                    <div class="row valign-wrapper popular_item">
-                        <div class="col-3 p_img">
-                            <a href="#">
-                                <img src="../../assets/images/recent-post-3.jpg" alt="" class="circle responsive-img">
-                            </a>
-                        </div>
-                        <div class="col s9 p_content">
-                            <a href="">10 Most Beautiful Places Of The World</a>
-                        </div>
-                    </div>
-                    <div class="row valign-wrapper popular_item">
-                        <div class="col-3 p_img">
-                            <a href="#">
-                                <img src="../../assets/images/recent-post-4.jpg" alt="" class="circle responsive-img">
-                            </a>
-                        </div>
-                        <div class="col s9 p_content">
-                            <a href="">Advertising A Blessing Or A Curse</a>
-                        </div>
-                    </div>
-                    <div class="row valign-wrapper popular_item">
-                        <div class="col-3 p_img">
-                            <a href="#">
-                                <img src="../../assets/images/recent-post-5.jpg" alt="" class="circle responsive-img">
-                            </a>
-                        </div>
-                        <div class="col s9 p_content">
-                            <a href="">Small Changes That Make A Big Difference</a>
+                            <a>{{blog.value.title}}</a>
                         </div>
                     </div>
                 </div>

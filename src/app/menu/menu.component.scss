@@ -14,7 +14,16 @@ a:hover{
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
-
+nav{
+  position: fixed;
+  z-index: 9;
+}
+.btn_group{
+  float:left !important
+}
+.confirm{
+  min-width: 70px !important;
+}
 
 
 

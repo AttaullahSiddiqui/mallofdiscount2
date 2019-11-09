@@ -32,6 +32,10 @@ export class DataService {
     return this._http.get(url, { params: params })
       .pipe(map(res => JSON.parse(JSON.stringify(res))));
   }
+  fetchOnlyLimit(url, limit) {
+    return this._http.get(url, { params: { limitNo: limit } })
+      .pipe(map(res => JSON.parse(JSON.stringify(res))));
+  }
   fetchAPIUsingId(url, id) {
     return this._http.get(url, { params: { _id: id } })
       .pipe(map(res => JSON.parse(JSON.stringify(res))));
