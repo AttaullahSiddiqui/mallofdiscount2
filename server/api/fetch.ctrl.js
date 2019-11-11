@@ -62,11 +62,21 @@ function fetchTopBlogs(req, res) {
         });
 }
 function fetchTopDeals(req, res) {
-    Store.findById(req.query._id, function (err, store) {
-        if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
-        else if (store.length) res.json(resHandler.respondError("No such Store at the moment", -3));
-        else res.json(resHandler.respondSuccess(store, "", 2));
-    })
+    Coupon.
+        find({}, 'offerBox expDate').
+        limit(Number(req.query.limitNo)).
+        exec(function (err, deals) {
+            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+            else {
+                if (deals) res.json(resHandler.respondSuccess(deals, "Deals fetched successfully", 2));
+                else res.json(resHandler.respondError("Can't fetch deals at the moment", -3));
+            }
+        });
+    // Store.findById(req.query._id, function (err, store) {
+    //     if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+    //     else if (store.length) res.json(resHandler.respondError("No such Store at the moment", -3));
+    //     else res.json(resHandler.respondSuccess(store, "", 2));
+    // })
 }
 function fetchCouponsById(req, res) {
     Coupon.

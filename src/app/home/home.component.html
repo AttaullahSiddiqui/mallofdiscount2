@@ -1,10 +1,26 @@
-<ngb-carousel class="height87" interval="2500" [pauseOnHover]="false">
+<ngb-carousel *ngIf="slideArray" class="height87" interval="2500" [pauseOnHover]="false">
     <ng-template ngbSlide *ngFor="let slide of slideArray | keyvalue">
         <img [src]="slide.value.img" class="height87" alt="Random first slide">
     </ng-template>
 </ngb-carousel>
+<div class="text-center m-5" *ngIf="!slideArray">
+    <div class="lds-hourglass"></div>
+</div>
 <br>
 <div class="row justify-content-md-center mb-0" style="margin:auto 30px">
+    <div class="text-center m-5" *ngIf="!storeArray">
+        <div class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div class="col-sm-6 col-lg-3" *ngFor="let store of storeArray | keyvalue">
         <div class="brand-card">
             <div class="brand-card-header">
@@ -21,7 +37,8 @@
                     <div class="text-value">
                         <i class="fa fa-paper-plane-o storeIcon"></i>
                     </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
+                    <div class="text-uppercase text-muted small" [routerLink]="['/store', store.value._id]">Coupons
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,7 +46,8 @@
 </div>
 
 <ul class="tranding_select tabs">
-    <li class="tab"><a routerLink="/stores" class="waves-effect btn active">View all Stores</a></li>
+    <li class="tab"><a routerLink="/stores" class="waves-effect btn active" routerLink="/category">View all
+            Stores</a></li>
 </ul>
 <br>
 
@@ -44,112 +62,23 @@
                     <br>
                     <table class="table table-responsive-sm table-hover table-outline mb-0">
                         <tbody>
-                            <tr>
+                            <div class="text-center m-5">
+                                <div class="lds-facebook">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <tr *ngFor="let deal of dealsArray | keyvalue">
                                 <td class="text-center">
                                     <div class="avatar">
-                                        <img src="assets/img/avatars/1.jpg" class="img-avatar">
+                                        <img src="assets/images/so1.jpg" class="img-avatar">
                                     </div>
                                 </td>
                                 <td>
-                                    <div> Yiorgos Avraamu</div>
+                                    <div>{{deal.value.offerBox}}</div>
                                     <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/2.jpg" class="img-avatar" alt="">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Avram Tarasios kjdfhaukiu yh uay oiuahj hasg</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/1.jpg" class="img-avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div> Yiorgos Avraamu</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/2.jpg" class="img-avatar" alt="">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Avram Tarasios kjdfhaukiu yh uay oiuahj hasg</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/1.jpg" class="img-avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div> Yiorgos Avraamu</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/2.jpg" class="img-avatar" alt="">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Avram Tarasios kjdfhaukiu yh uay oiuahj hasg</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/img/avatars/1.jpg" class="img-avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div> Yiorgos Avraamu</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | Jan 1, 2015
+                                        <span>Validity</span> | <span>{{deal.value.expDate | date}}</span>
                                     </div>
                                 </td>
                                 <td>
@@ -193,6 +122,12 @@
             <div class="right_sidebar_iner">
                 <div class="popular_posts">
                     <h3 class="categories_tittle">Popular Blogs</h3>
+                    <div class="text-center m-5" *ngIf="!blogArray">
+                        <div class="lds-ripple">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
                     <div class="row valign-wrapper popular_item" *ngFor="let blog of blogArray | keyvalue">
                         <div class="col-3 p_img">
                             <div class="manAvatar">

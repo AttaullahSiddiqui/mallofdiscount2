@@ -8,10 +8,10 @@ import { DataService } from '../data.service'
 })
 export class HomeComponent implements OnInit {
   responseError = "";
-  slideArray = [];
-  storeArray = [];
-  blogArray = [];
-  dealsArray = [];
+  slideArray: [] = null;
+  storeArray: [] = null;
+  blogArray: [] = null;
+  dealsArray: [] = null;
   constructor(private _dataService: DataService) { }
 
   ngOnInit() {
@@ -27,10 +27,10 @@ export class HomeComponent implements OnInit {
       if (res.data) this.blogArray = res.data;
       else this.errorHandler(res.message)
     })
-    // this._dataService.fetchOnlyLimit("/userDisplay/fetchTopDeals", 7).subscribe(res => {
-    //   if (res.data) this.dealsArray = res.data;
-    //   else this.errorHandler(res.message)
-    // })
+    this._dataService.fetchOnlyLimit("/userDisplay/fetchTopDeals", 7).subscribe(res => {
+      if (res.data) this.dealsArray = res.data;
+      else this.errorHandler(res.message)
+    })
   }
   errorHandler(err) { this.responseError = "Can't load " + err + " at the moment" }
   closeError() { this.responseError = "" }

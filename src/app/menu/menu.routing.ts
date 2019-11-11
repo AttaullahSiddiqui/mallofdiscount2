@@ -20,7 +20,8 @@ export const MenuRoutes: Routes = [
     { path: 'stores', component: StoresComponent },
     { path: 'blogs', component: BlogsComponent },
     { path: 'category', component: CategoryComponent },
-    { path: 'store', component: StoreComponent },
+    { path: 'category/:id', component: CategoryComponent },
+    { path: 'store/:id', component: StoreComponent },
     { path: 'blog', component: BlogComponent },
     {
         path: '', redirectTo: '/home', pathMatch: 'full',
