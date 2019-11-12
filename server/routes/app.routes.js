@@ -12,5 +12,8 @@ router.get('/fetchSlides', fetchCtrl.fetchSlides);
 router.get('/fetchTopStores', fetchCtrl.fetchTopStores);
 router.get('/fetchTopBlogs', fetchCtrl.fetchTopBlogs);
 router.get('/fetchTopDeals', fetchCtrl.fetchTopDeals);
+router.get('/fetchCoupons', fetchCtrl.fetchCoupons);
+router.get('/singleStoreData', fetchCtrl.singleStoreData);
+router.get('/fetchStores', fetchCtrl.fetchStores);
 
 module.exports = router;

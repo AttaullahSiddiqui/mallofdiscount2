@@ -10,7 +10,10 @@ module.exports = {
     fetchSlides: fetchSlides,
     fetchTopStores: fetchTopStores,
     fetchTopBlogs: fetchTopBlogs,
-    fetchTopDeals: fetchTopDeals
+    fetchTopDeals: fetchTopDeals,
+    fetchCoupons: fetchCoupons,
+    singleStoreData: singleStoreData,
+    fetchStores: fetchStores
 };
 
 function fetchSlides(req, res) {
@@ -78,12 +81,9 @@ function fetchTopDeals(req, res) {
     //     else res.json(resHandler.respondSuccess(store, "", 2));
     // })
 }
-function fetchCouponsById(req, res) {
+function fetchCoupons(req, res) {
     Coupon.
         find({ storeId: req.query._id }).
-        skip(Number(req.query.skipNo)).
-        limit(Number(req.query.limitNo)).
-        sort({ sortNo: 1 }).
         exec(function (err, coupons) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
             else {
@@ -92,23 +92,17 @@ function fetchCouponsById(req, res) {
             }
         });
 }
-function fetchBlogs(req, res) {
-    Blog.
-        find({}).
-        skip(Number(req.query.skipNo)).
-        limit(Number(req.query.limitNo)).
-        exec(function (err, blogs) {
-            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
-            else {
-                if (blogs.length) res.json(resHandler.respondSuccess(blogs, "Blogs fetched successfully", 2));
-                else res.json(resHandler.respondError("Unbale to fetch blogs", -3));
-            }
-        });
-}
-function fetchUsers(req, res) {
-    User.find({}, function (err, users) {
+function singleStoreData(req, res) {
+    Store.find({ _id: req.query._id }, 'img shortDes categoryRef name', function (err, store) {
         if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
-        else if (!users) res.json(resHandler.respondError("Unable to fetch Users at the moment", -3));
-        else res.json(resHandler.respondSuccess(users, "Users fetched successfully", 2));
+        else if (!store) res.json(resHandler.respondError("Unable to fetch Store Image at the moment", -3));
+        else res.json(resHandler.respondSuccess(store, "Store image fetched successfully", 2));
+    })
+}
+function fetchStores(req, res) {
+    Store.find({ categoryRef: req.query._id }, 'name img', function (err, stores) {
+        if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+        else if (!stores) res.json(resHandler.respondError("Unable to fetch Stores at the moment", -3));
+        else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
     })
 }
