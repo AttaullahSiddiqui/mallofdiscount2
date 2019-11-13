@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { P404Component } from './error/404.component';
 import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from "ngx-bootstrap/modal";
 import { MenuComponent } from './menu/menu.component';
 import {
   AppHeaderModule,
@@ -30,7 +31,8 @@ import {
     AppHeaderModule,
     // AppSidebarModule,
     PerfectScrollbarModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,

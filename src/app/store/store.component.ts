@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../data.service'
+import { DataService } from '../data.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-store',
@@ -8,30 +11,54 @@ import { DataService } from '../data.service'
   styleUrls: ['./store.component.scss']
 })
 export class StoreComponent implements OnInit {
+  modalRef: BsModalRef;
   responseError = "";
   switch = false;
-  couponsArray: [] = null;
+  couponsArray: {} = null;
   storePic;
   storeDetail;
   storeName;
   storeId;
   storeArray: [] = null;
-  constructor(private route: ActivatedRoute, private _dataService: DataService) { }
+  currentDate = Date.now();
+  constructor(private route: ActivatedRoute, private _dataService: DataService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
       var abc = paramMap.get('id');
       this.loadCoupons(abc);
       this.loadStoreData(abc);
-      this.secondTabData(abc);
     }
     )
   }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+  openModal2(template: TemplateRef<any>, code) {
+    const el = document.createElement('textarea');
+    el.value = code;
+    // el.setAttribute('readonly', '');
+    // el.style.position = 'absolute';
+    // el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    this.modalRef = this.modalService.show(template);
+  }
+  closeModal() { this.modalRef.hide() }
   loadCoupons(id) {
     this._dataService.fetchWithQuery("/userDisplay/fetchCoupons", id).subscribe(res => {
       if (res.data) {
         this.couponsArray = res.data;
         console.log(res.data)
+        for (var i = 0; i < res.data.length; i++) {
+          var orginalDate = this.couponsArray[i]['expDate'];
+          var singleObj: Object = this.couponsArray[i];
+          var fff = new Date(orginalDate).getTime();
+          singleObj['expDate'] = fff;
+          this.couponsArray[i] = singleObj;
+        }
       }
       else this.errorHandler(res.message)
     })
@@ -49,6 +76,7 @@ export class StoreComponent implements OnInit {
     })
   }
   secondTabData(id) {
+    console.log(id)
     this._dataService.fetchWithQuery("/userDisplay/fetchStores", id).subscribe(res => {
       if (res.data) {
         this.storeArray = res.data;
@@ -58,13 +86,13 @@ export class StoreComponent implements OnInit {
     })
   }
   loadAnotherStore(id) {
-    this.couponsArray = null;
-    this.loadStoreData = null;
-    this.loadCoupons(id);
     this.switch = false;
+    this.couponsArray = null;
+    this.storeDetail = null;
+    this.storeArray = null;
+    this.loadCoupons(id);
     this.loadStoreData(id)
     this.secondTabData(id);
-    this.storeArray = null;
   }
   errorHandler(err) { this.responseError = "Can't load " + err + " at the moment" }
   closeError() { this.responseError = "" }

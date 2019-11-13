@@ -9,14 +9,21 @@
                         Stores</a></li>
             </ul>
             <br>
+            <div class="text-center m-5" *ngIf="!couponsArray">
+                <div class="lds-facebook">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
             <div class="row" *ngIf="!switch">
                 <div class="col">
                     <section class="notifications_area">
                         <div class="notifications">
-                            <div class="hed_notic">Active Coupons</div>
+                            <div class="hed_notic" *ngIf="couponsArray">Active Coupons</div>
                             <ul class="notifications_content follow">
                                 <li *ngFor="let coupon of couponsArray | keyvalue">
-                                    <a *ngIf="coupon.value.activeStatus">
+                                    <a *ngIf="coupon.value.expDate > currentDate">
                                         <div class="media first_child">
                                             <img [src]="storePic" alt="" class="circle responsive-img">
                                             <div class="media_body">
@@ -24,7 +31,14 @@
                                                 <h6><b>Expiry Date: </b>&nbsp;
                                                     <span>{{coupon.value.expDate | date}}</span></h6>
                                                 <div class="btn_group">
-                                                    <span class="waves-effect confirm">Get Offer</span>
+                                                    <span class="waves-effect confirm"
+                                                        (click)="openModal2(template,coupon.value.code)"
+                                                        *ngIf="!coupon.value.activeStatus">Copy
+                                                        code & Visit
+                                                        Merchant</span>
+                                                    <span class="waves-effect confirm" (click)="openModal(template)"
+                                                        data-toggle="modal" *ngIf="coupon.value.activeStatus">Get
+                                                        Offer</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -34,19 +48,16 @@
                         </div>
                         <br>
                         <div class="notifications">
-                            <div class="hed_notic">Expired Coupons</div>
+                            <div class="hed_notic" *ngIf="couponsArray">Expired Coupons</div>
                             <ul class="notifications_content follow">
                                 <li *ngFor="let coupon of couponsArray | keyvalue">
-                                    <a *ngIf="!coupon.value.activeStatus">
+                                    <a *ngIf="currentDate > coupon.value.expDate">
                                         <div class="media first_child">
                                             <img [src]="storePic" alt="" class="circle responsive-img">
-                                            <div class="media_body">
+                                            <div class="media_body" style="opacity: 0.3;">
                                                 <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
                                                 <h6><b>Expiry Date: </b>&nbsp;
                                                     <span>{{coupon.value.expDate | date}}</span></h6>
-                                                <div class="btn_group">
-                                                    <span class="waves-effect follow_b">View Offer</span>
-                                                </div>
                                             </div>
                                         </div>
                                     </a>
@@ -65,7 +76,7 @@
             <div class="row" *ngIf="switch">
                 <div class="col">
                     <div class="row mb-0">
-                        <div *ngFor="let store of storeArray | keyvalue">
+                        <ng-container *ngFor="let store of storeArray | keyvalue">
                             <div class="col-sm-6 col-lg-3" *ngIf="store.value._id != storeId">
                                 <div class="brand-card" (click)="loadAnotherStore(store.value._id)">
                                     <div class="brand-card-header">
@@ -77,10 +88,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        This is a modal.
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="closeModal()">Save changes</button>
+    </div>
+</ng-template>
