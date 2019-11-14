@@ -64,9 +64,11 @@ function fetchTopBlogs(req, res) {
             }
         });
 }
+
 function fetchTopDeals(req, res) {
+    var today = new Date();
     Coupon.
-        find({}, 'offerBox expDate').
+        find({ expDate: { $gte: today } }).
         limit(Number(req.query.limitNo)).
         exec(function (err, deals) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));

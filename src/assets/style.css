@@ -3945,6 +3945,9 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   .min_container .section_row .left_side_bar, .min_container .section_row .right_side_bar {
     margin: 20px 15px;
   }
+.min_container .section_row .right_side_bar {
+    margin: 20px 0;
+  }
 
   .your_states .chart_area .cercle_chart h2, .your_states .chart_area .cercle_chart h5 {
     right: 30px;

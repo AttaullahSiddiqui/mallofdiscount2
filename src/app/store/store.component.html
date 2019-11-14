@@ -32,13 +32,13 @@
                                                     <span>{{coupon.value.expDate | date}}</span></h6>
                                                 <div class="btn_group">
                                                     <span class="waves-effect confirm"
-                                                        (click)="openModal2(template,coupon.value.code)"
-                                                        *ngIf="!coupon.value.activeStatus">Copy
-                                                        code & Visit
-                                                        Merchant</span>
-                                                    <span class="waves-effect confirm" (click)="openModal(template)"
-                                                        data-toggle="modal" *ngIf="coupon.value.activeStatus">Get
-                                                        Offer</span>
+                                                        (click)="openModal2(template2,coupon.value)"
+                                                        *ngIf="!coupon.value.activeStatus">
+                                                        Copy code & Visit Merchant</span>
+                                                    <span class="waves-effect confirm"
+                                                        (click)="openModal(template,coupon.value)"
+                                                        *ngIf="coupon.value.activeStatus">
+                                                        Get Offer</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,7 +54,7 @@
                                     <a *ngIf="currentDate > coupon.value.expDate">
                                         <div class="media first_child">
                                             <img [src]="storePic" alt="" class="circle responsive-img">
-                                            <div class="media_body" style="opacity: 0.3;">
+                                            <div class="media_body" style="opacity: 0.45;">
                                                 <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
                                                 <h6><b>Expiry Date: </b>&nbsp;
                                                     <span>{{coupon.value.expDate | date}}</span></h6>
@@ -98,15 +98,46 @@
 
 <ng-template #template>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">Modal</h4>
+        <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
-        This is a modal.
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">No code required</span><br><br>
+        <button type="button" class="btn btn-success" (click)="window.open(editObj.trackingLink)">
+            Shop Now
+        </button>
+        <br>
+        <br>
+        <span>*No code required. Just click the above button to avail this deal</span>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="closeModal()">Save changes</button>
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>
+<ng-template #template2>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">Here is the code</span><br><br>
+        <div class="template2">
+            {{editObj.code}}
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="copyToClipBoard()">
+            <span *ngIf="!codeCopied">Copy code & Visit Store</span>
+            <span *ngIf="codeCopied">Code Copied</span>
+        </button>
+        <br>
+        <br>
+        <span>Copy this code and paste it at checkout</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
     </div>
 </ng-template>

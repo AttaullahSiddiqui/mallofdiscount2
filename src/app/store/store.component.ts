@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -19,6 +18,8 @@ export class StoreComponent implements OnInit {
   storeDetail;
   storeName;
   storeId;
+  codeCopied = false;
+  editObj;
   storeArray: [] = null;
   currentDate = Date.now();
   constructor(private route: ActivatedRoute, private _dataService: DataService, private modalService: BsModalService) { }
@@ -31,22 +32,31 @@ export class StoreComponent implements OnInit {
     }
     )
   }
-  openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>, couponNode) {
+    this.editObj = { ...couponNode };
+    window.open(this.editObj.trackingLink, '_blank');
     this.modalRef = this.modalService.show(template);
   }
-  openModal2(template: TemplateRef<any>, code) {
+  openModal2(template: TemplateRef<any>, couponNode) {
+    this.codeCopied = false;
+    this.editObj = { ...couponNode };
+    window.open(this.editObj.trackingLink, '_blank');
+    this.modalRef = this.modalService.show(template);
+  }
+  closeModal() { this.modalRef.hide() }
+  copyToClipBoard() {
+    window.open(this.editObj.trackingLink, '_blank');
     const el = document.createElement('textarea');
-    el.value = code;
+    el.value = this.editObj.code;
     // el.setAttribute('readonly', '');
     // el.style.position = 'absolute';
     // el.style.left = '-9999px';
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
+    this.codeCopied = true;
     document.body.removeChild(el);
-    this.modalRef = this.modalService.show(template);
   }
-  closeModal() { this.modalRef.hide() }
   loadCoupons(id) {
     this._dataService.fetchWithQuery("/userDisplay/fetchCoupons", id).subscribe(res => {
       if (res.data) {

@@ -39,11 +39,11 @@ td{
 .display-4{
     font-size: 3.2em;
 }
-.orangeBtn{
-    background-color:#E26139;
-    border:none;
-    color:white
-}
+// .orangeBtn{
+//     background-color:#E26139;
+//     border:none;
+//     color:white
+// }
 .height87{
    height: 88vh;
 }
@@ -65,4 +65,19 @@ td{
 .avatar{
     width:42px !important;
     height:42px !important
+}
+.visitCoupon:hover{
+    cursor: grab;
+}
+.modal-header {
+    background-color: #20A8D8 !important;
+    color:white !important
+}
+.template2{
+    width: 100%;height: 50px;
+    background-color: turquoise;
+    border:2px dashed white;
+    font-size: 1.5em;color:white;
+    padding-top: 9px;
+    margin: 5px auto;
 }

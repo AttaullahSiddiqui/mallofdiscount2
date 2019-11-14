@@ -7,37 +7,33 @@
     <div class="lds-hourglass"></div>
 </div>
 <br>
-<div class="row justify-content-md-center mb-0" style="margin:auto 30px">
-    <div class="text-center m-5" *ngIf="!storeArray">
-        <div class="lds-grid">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+<div class="text-center m-5" *ngIf="!storeArray">
+    <div class="lds-grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    <div class="col-sm-6 col-lg-3" *ngFor="let store of storeArray | keyvalue">
+</div>
+<div class="row justify-content-md-center mb-0" style="margin:auto 30px">
+    <div class="col-sm-6 col-lg-2 visitCoupon" *ngFor="let store of storeArray | keyvalue"
+        [routerLink]="['/store', store.value._id]">
         <div class="brand-card">
             <div class="brand-card-header">
                 <img [src]="store.value.img" class="rounded-circle roundImg" width="100" height="100" />
             </div>
+            <br>
             <div class="brand-card-body">
                 <div>
                     <div class="text-value">
-                        <i class="fa fa-folder-open-o storeIcon"></i>
+                        <i class="fa fa-share-square-o storeIcon"></i>
                     </div>
-                    <div class="text-uppercase text-muted small">Category</div>
-                </div>
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-paper-plane-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small" [routerLink]="['/store', store.value._id]">Coupons
+                    <div class="text-uppercase text-muted small">Coupons
                     </div>
                 </div>
             </div>
@@ -62,13 +58,7 @@
                     <br>
                     <table class="table table-responsive-sm table-hover table-outline mb-0">
                         <tbody>
-                            <div class="text-center m-5">
-                                    <div class="lds-facebook">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div> <tr *ngIf="!dealsArray">
+                            <tr *ngIf="!dealsArray">
                                 <div class="text-center m-5">
                                     <div class="lds-facebook">
                                         <div></div>
@@ -90,7 +80,12 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-lg orangeBtn">Get Deal</button>
+                                    <button type="button" class="btn btn-sm btn-primary"
+                                        (click)="openModal2(template2,deal.value)" *ngIf="!deal.value.activeStatus">Copy
+                                        code</button>
+                                    <button type="button" class="btn btn-sm btn-danger"
+                                        (click)="openModal(template,deal.value)" *ngIf="deal.value.activeStatus">Get
+                                        Deal</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -151,3 +146,50 @@
         </div>
     </div>
 </section>
+
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">No code required</span><br><br>
+        <button type="button" class="btn btn-success" (click)="window.open(editObj.trackingLink)">
+            Shop Now
+        </button>
+        <br>
+        <br>
+        <span>*No code required. Just click the above button to avail this deal</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>
+<ng-template #template2>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">Here is the code</span><br><br>
+        <div class="template2">
+            {{editObj.code}}
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="copyToClipBoard()">
+            <span *ngIf="!codeCopied">Copy code & Visit Store</span>
+            <span *ngIf="codeCopied">Code Copied</span>
+        </button>
+        <br>
+        <br>
+        <span>Copy this code and paste it at checkout</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>
