@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-
-  constructor() { }
+  categoryArr = null;
+  constructor(private _dataService: DataService) { }
 
   ngOnInit() {
+    this._dataService.fetchAPI("/userDisplay/fetchCategories").subscribe(res => {
+      if (res.data) this.categoryArr = res.data;
+      else console.log(res.message)
+    })
   }
 
 }

@@ -4,7 +4,17 @@
     <div class="lead" style="font-size: 1.2em !important;">
         <div class="container">
             <div class="row">
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-4 p_content" *ngFor="let cat of categoryArr | keyvalue">
+                            <a [routerLink]="['/category', cat.value._id]">{{cat.value.name}}</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="col">
+                    Ads will be displayed here
+                </div>
+                <!-- <div class="col">
                     <div class="popular_posts">
                         <div class="row valign-wrapper popular_item">
                             <div class="col s9 p_content">
@@ -167,10 +177,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    Ads will be displayed here
-                </div>
+                </div> -->
+
             </div>
         </div>
     </div>

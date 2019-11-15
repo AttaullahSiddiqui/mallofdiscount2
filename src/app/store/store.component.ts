@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
-
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',

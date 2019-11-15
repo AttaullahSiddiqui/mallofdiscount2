@@ -14,12 +14,24 @@
 h6{
     font-size: 1.15em !important;
 }
-.read_latter,.middle_section{
-    width: 100% !important;
-}
+// .read_latter,.middle_section{
+//     width: 100% !important;
+// }
 .read_latter{
     min-width: 100% !important;
+    margin-top: 0;
 }
 .middle_section{
-    min-width: 70% !important;
+    min-width: 100% !important;
+    padding: 0 !important;
+}
+.section_row{
+    padding-top: 0;
+    max-width: 100% !important;
+}
+@media (min-width: 992px){
+    .min_pages{
+        max-width: 70% !important;
+        margin: 0 auto;
+    }
 }

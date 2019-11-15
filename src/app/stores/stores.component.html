@@ -6,83 +6,13 @@
                 <div class="middle_section col mx-auto" id="infinite_scroll">
                     <div class="notifications read_latter">
                         <ul class="notifications_content">
-                            <li>
+                            <li *ngFor="let store of storeArray | keyvalue">
                                 <a>
                                     <div class="media first_child">
-                                        <img src="../../assets/images/read-later-1.jpg" class="circle responsive-img">
+                                        <img [src]="store.value.img" class="circle responsive-img">
                                         <div class="media_body">
-                                            <p>Toyota</p>
-                                            <h6 class="d-none d-md-block">Toyota is kjfhkjb fuisg fkusgkufgksifgsuk
-                                                kusyfiuikgsiuygfiusgiug iuy
-                                                fiug iusfk okius yfoius kufg iusg iug iusfyiousf g</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="media first_child">
-                                        <img src="../../assets/images/read-later-2.jpg" class="circle responsive-img">
-                                        <div class="media_body">
-                                            <p>Toyota</p>
-                                            <h6 class="d-none d-md-block">Toyota is kjfhkjb fuisg
-                                                fkusgkufgksifgsuk
-                                                kusyfiuikgsiuygfiusgiug iuy
-                                                fiug iusfk okius yfoius kufg iusg iug iusfyiousf g</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="media first_child">
-                                        <img src="../../assets/images/read-later-1.jpg" class="circle responsive-img">
-                                        <div class="media_body">
-                                            <p>Toyota</p>
-                                            <h6 class="d-none d-md-block">Toyota is kjfhkjb fuisg fkusgkufgksifgsuk
-                                                kusyfiuikgsiuygfiusgiug iuy
-                                                fiug iusfk okius yfoius kufg iusg iug iusfyiousf g</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="media first_child">
-                                        <img src="../../assets/images/read-later-2.jpg" class="circle responsive-img">
-                                        <div class="media_body">
-                                            <p>Toyota</p>
-                                            <h6 class="d-none d-md-block">Toyota is kjfhkjb fuisg
-                                                fkusgkufgksifgsuk
-                                                kusyfiuikgsiuygfiusgiug iuy
-                                                fiug iusfk okius yfoius kufg iusg iug iusfyiousf g</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="media first_child">
-                                        <img src="../../assets/images/read-later-1.jpg" class="circle responsive-img">
-                                        <div class="media_body">
-                                            <p>Toyota</p>
-                                            <h6 class="d-none d-md-block">Toyota is kjfhkjb fuisg fkusgkufgksifgsuk
-                                                kusyfiuikgsiuygfiusgiug iuy
-                                                fiug iusfk okius yfoius kufg iusg iug iusfyiousf g</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="media first_child">
-                                        <img src="../../assets/images/read-later-2.jpg" class="circle responsive-img">
-                                        <div class="media_body">
-                                            <p>Toyota</p>
-                                            <h6 class="d-none d-md-block">Toyota is kjfhkjb fuisg
-                                                fkusgkufgksifgsuk
-                                                kusyfiuikgsiuygfiusgiug iuy
-                                                fiug iusfk okius yfoius kufg iusg iug iusfyiousf g</h6>
+                                            <p>{{store.value.name}}</p>
+                                            <h6>{{store.value.shortDes}}</h6>
                                         </div>
                                     </div>
                                 </a>
@@ -92,87 +22,9 @@
                 </div>
             </div>
         </section>
-
-
-
-        <!-- <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="w-100"></div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div>
-        <div class="card col-2 noPadding">
-            <img src="assets/img/avatars/danish2.jpg" class="card-img-top mx-auto">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-            </div>
-        </div> -->
-        <!-- <div class="row justify-content-around">
-            <div class="col-2">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="col-2">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="col-2">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <div class="col-2">
-                <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-        </div> -->
-        <!-- <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-        <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-        <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" />
-        <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="100" height="100" /> -->
     </div>
+    <ul class="tranding_select tabs">
+        <li class="tab"><a (click)="loadMoreStores()" class="waves-effect btn active">
+                Load More</a></li>
+    </ul>
 </div>

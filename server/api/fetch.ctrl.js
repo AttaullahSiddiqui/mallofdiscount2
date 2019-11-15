@@ -13,7 +13,9 @@ module.exports = {
     fetchTopDeals: fetchTopDeals,
     fetchCoupons: fetchCoupons,
     singleStoreData: singleStoreData,
-    fetchStores: fetchStores
+    fetchStores: fetchStores,
+    fetchRandomStores: fetchRandomStores,
+    fetchCategories: fetchCategories
 };
 
 function fetchSlides(req, res) {
@@ -46,11 +48,6 @@ function fetchTopStores(req, res) {
                 else res.json(resHandler.respondError("Unable to fetch Stores at the moment", -3));
             }
         });
-    // Store.find({}, 'name _id', function (err, stores) {
-    //     if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
-    //     else if (!stores) res.json(resHandler.respondError("No Stores at the moment", -3));
-    //     else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
-    // })
 }
 function fetchTopBlogs(req, res) {
     Blog.
@@ -107,4 +104,20 @@ function fetchStores(req, res) {
         else if (!stores) res.json(resHandler.respondError("Unable to fetch Stores at the moment", -3));
         else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
     })
+}
+function fetchCategories(req, res) {
+    Category.find({}, 'name', function (err, categories) {
+        if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+        else if (!categories) res.json(resHandler.respondError("Unable to fetch categories at the moment", -3));
+        else res.json(resHandler.respondSuccess(categories, "Categories fetched successfully", 2));
+    })
+}
+function fetchRandomStores(req, res) {
+    Store.
+        aggregate([{ $sample: { size: 20 } }, { $project: { name: 1, img: 1, shortDes: 1 } }]).
+        exec(function (err, stores) {
+            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+            else if (!stores) res.json(resHandler.respondError("Unable to fetch Stores at the moment", -3));
+            else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
+        });
 }

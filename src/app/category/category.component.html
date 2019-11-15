@@ -6,26 +6,11 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-3">
                     <form>
-                        <select name="categories" class="custom-select customSize">
-                            <option selected disabled>Select Store</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
+                        <select class="custom-select customSize" name="selctForm" [(ngModel)]="selectCat"
+                            (change)="loadStores(selectCat)">
+                            <option [value]="cat.value._id" *ngFor="let cat of categoryArr | keyvalue">
+                                {{cat.value.name}}
+                            </option>
                         </select>
                     </form>
                     <br>
@@ -33,157 +18,16 @@
                 </div>
                 <div class="col">
                     <div class="row mb-0">
-                        <div class="col-sm-6 col-lg-2">
+                        <div class="col-sm-6 col-lg-2" [routerLink]="['/store', store.value._id]"
+                            *ngFor="let store of storeArr | keyvalue">
                             <div class="brand-card">
                                 <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
+                                    <img [src]="store.value.img" class="rounded-circle roundImg" width="55"
                                         height="55" />
                                 </div>
                                 <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-2">
-                            <div class="brand-card">
-                                <div class="brand-card-header">
-                                    <img src="assets/img/avatars/danish2.jpg" class="rounded-circle roundImg" width="55"
-                                        height="55" />
-                                </div>
-                                <div class="brand-card-body">
-                                    <div class="text-muted small">Store</div>
+                                    <div class="text-muted small">
+                                        {{store.value.name | slice:0:10}}</div>
                                 </div>
                             </div>
                         </div>
