@@ -181,7 +181,7 @@
             {{editObj.code}}
         </div>
         <br>
-        <button type="button" class="btn btn-primary" (click)="copyToClipBoard()">
+        <button type="button" class="btn btn-primary" (click)="copyClipboardFunc()">
             <span *ngIf="!codeCopied">Copy code & Visit Store</span>
             <span *ngIf="codeCopied">Code Copied</span>
         </button>
@@ -193,3 +193,4 @@
         <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
     </div>
 </ng-template>
+<input class='copyfrom' [(ngModel)]="hiddenInput" tabindex='-1' aria-hidden='true'>

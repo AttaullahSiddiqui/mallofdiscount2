@@ -1,21 +1,19 @@
 <div class="jumbotron">
     <h1 class="display-4 text-center">Choose Best Deals From Amazing Stores!</h1>
-    <div class="" style="font-size: 1.2em !important;">
+    <div style="font-size: 1.2em !important;margin-top: 20px;">
         <section class="min_container min_pages">
             <div class="section_row">
-                <div class="middle_section col mx-auto" id="infinite_scroll">
+                <div class="middle_section col mx-auto">
                     <div class="notifications read_latter">
                         <ul class="notifications_content">
-                            <li *ngFor="let store of storeArray | keyvalue">
-                                <a>
-                                    <div class="media first_child">
-                                        <img [src]="store.value.img" class="circle responsive-img">
-                                        <div class="media_body">
-                                            <p>{{store.value.name}}</p>
-                                            <h6>{{store.value.shortDes}}</h6>
-                                        </div>
+                            <li *ngFor="let store of storeArray | keyvalue" [routerLink]="['/store', store.value._id]">
+                                <div class="media first_child">
+                                    <img [src]="store.value.img" class="circle responsive-img">
+                                    <div class="media_body">
+                                        <p>{{store.value.name}}</p>
+                                        <h6>{{store.value.shortDes}}</h6>
                                     </div>
-                                </a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -23,6 +21,14 @@
             </div>
         </section>
     </div>
+    <div class="text-center m-5" *ngIf="isLoading">
+        <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <br>
     <ul class="tranding_select tabs">
         <li class="tab"><a (click)="loadMoreStores()" class="waves-effect btn active">
                 Load More</a></li>

@@ -29,9 +29,15 @@ h6{
     padding-top: 0;
     max-width: 100% !important;
 }
+.min_pages {
+    padding-bottom: 0 !important;
+}
 @media (min-width: 992px){
     .min_pages{
         max-width: 70% !important;
         margin: 0 auto;
     }
+}
+li:hover{
+    cursor: grab;
 }

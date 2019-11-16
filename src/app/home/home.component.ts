@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   storeArray: [] = null;
   blogArray: [] = null;
   dealsArray: [] = null;
+  hiddenInput = null;
   constructor(private _dataService: DataService, private modalService: BsModalService) { }
 
   ngOnInit() {
@@ -44,18 +45,25 @@ export class HomeComponent implements OnInit {
   openModal2(template: TemplateRef<any>, couponNode) {
     this.codeCopied = false;
     this.editObj = { ...couponNode };
-    window.open(this.editObj.trackingLink, '_blank');
     this.modalRef = this.modalService.show(template);
+    this.copyToClipBoard()
   }
   copyToClipBoard() {
-    window.open(this.editObj.trackingLink, '_blank');
     const el = document.createElement('textarea');
     el.value = this.editObj.code;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
     this.codeCopied = true;
     document.body.removeChild(el);
+    window.open(this.editObj.trackingLink, '_blank');
+  }
+  copyClipboardFunc() {
+    this.copyToClipBoard();
+    this.codeCopied = true;
   }
   errorHandler(err) { this.responseError = "Can't load " + err + " at the moment" }
   closeError() { this.responseError = "" }
