@@ -10,6 +10,10 @@ a:hover{
   display: block;
   opacity: 1;
 }
+.dropdown-menu{
+  display: block;
+  margin-top: 15px;
+}
 .rmHorizontalPadding{
   padding-right: 0 !important;
   padding-left: 0 !important;
@@ -24,6 +28,14 @@ nav{
 .confirm{
   min-width: 70px !important;
 }
+table{
+  font-size: 1.15em;
+}
+tr:hover{
+  cursor: grab;
+}
+
+
 
 
 

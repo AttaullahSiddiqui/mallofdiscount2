@@ -26,8 +26,43 @@
       <ul class="right right_menu hide-on-med-and-down">
         <li class="search_min">
           <ul class="search_from">
-            <li class="notifications follow"><input placeholder="Search By Brand Name Or Website" type="text">
-              <ul class="dropdown-content" style="left:0 !important;max-height: 75vh;overflow-y: scroll;">
+            <li class="notifications follow">
+              <input (focus)="switch=true" (input)="searchFunc(searchBox)" (focusout)="switch=false"
+                [(ngModel)]="searchBox" placeholder="Search By Brand Name Or Website" type="text">
+              <div class="dropdown-menu" style="width: 350px;" *ngIf="switch && searchBox">
+                <table class="table table-responsive-sm table-hover table-outline mb-0">
+                  <tbody>
+                    <tr>
+                      <div class="text-center" *ngIf="!storeArray && !noResult">
+                        <div class="lds-ripple">
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="text-center" *ngIf="noResult">
+                        <br>
+                        No result found for "{{searchBox}}"
+                        <br>
+                        <br>
+                      </div>
+                    </tr>
+                    <tr *ngFor="let store of storeArray | keyvalue">
+                      <td class="text-center">
+                        <div class="avatar">
+                          <img [src]="store.value.img" class="rounded-circle">
+                        </div>
+                      </td>
+                      <td>
+                        <div>{{store.value.name}}</div>
+                        <div class="small text-muted">
+                          <span>Store</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- <ul class="dropdown-content" style="left:0 !important;max-height: 75vh;overflow-y: scroll;">
                 <li class="hed_notic">Search Results <span><i class="ion-ios-gear-outline"></i></span></li>
                 <li>
                     <div class="media">
@@ -105,7 +140,7 @@
                     </div>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
             </li>
             <li><a href="" class="search_icon"><i class="icon-magnifier"></i></a></li>
           </ul>

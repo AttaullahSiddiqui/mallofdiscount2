@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { finalize } from "rxjs/operators";
+import { finalize, skip } from "rxjs/operators";
 import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/operators";
 @Injectable({
@@ -23,11 +23,11 @@ export class DataService {
     return this._http.delete(url, reqData)
       .pipe(map(res => JSON.parse(JSON.stringify(res))));
   }
-  fetchAPIWithLimit(url, skip, limit, id?) {
+  fetchAPIWithLimit(url, limit, id, skip?) {
     const params = {
       skipNo: skip,
       limitNo: limit,
-      _id: id
+      quer: id
     }
     return this._http.get(url, { params: params })
       .pipe(map(res => JSON.parse(JSON.stringify(res))));

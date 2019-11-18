@@ -15,7 +15,8 @@ module.exports = {
     singleStoreData: singleStoreData,
     fetchStores: fetchStores,
     fetchRandomStores: fetchRandomStores,
-    fetchCategories: fetchCategories
+    fetchCategories: fetchCategories,
+    searchQuery: searchQuery
 };
 
 function fetchSlides(req, res) {
@@ -119,5 +120,18 @@ function fetchRandomStores(req, res) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
             else if (!stores) res.json(resHandler.respondError("Unable to fetch Stores at the moment", -3));
             else res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
+        });
+}
+function searchQuery(req, res) {
+    var regex = new RegExp(req.query["quer"], 'i');
+    Store.
+        find({ name: regex }, { name: req.query.quer, img: "" }).
+        limit(Number(req.query.limitNo)).
+        exec(function (err, stores) {
+            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+            else {
+                if (stores.length) res.json(resHandler.respondSuccess(stores, "Stores fetched successfully", 2));
+                else res.json(resHandler.respondError("Can't fetch Stores at the moment", -3));
+            }
         });
 }
