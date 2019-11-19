@@ -11,6 +11,7 @@ export class CategoryComponent implements OnInit {
   responseError = "";
   categoryArr = null;
   storeArr = null;
+  isLoading = false;
   constructor(private _dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -24,14 +25,20 @@ export class CategoryComponent implements OnInit {
     })
   }
   loadStores(id) {
+    if (this.isLoading) return;
+    this.isLoading = true;
     this._dataService.fetchWithQuery("/userDisplay/fetchStores", id).subscribe(res => {
       if (res.data) {
         this.storeArr = res.data;
-        console.log(res.data)
+        this.isLoading = false;
       }
-      else console.log(res.message)
+      else this.errorHandler(res.message)
     })
   }
-  errorHandler(err) { this.responseError = "Can't load " + err + " at the moment" }
+  errorHandler(err) {
+    this.isLoading = false;
+    this.responseError = err;
+    window.scrollTo(0, 0);
+  }
   closeError() { this.responseError = "" }
 }

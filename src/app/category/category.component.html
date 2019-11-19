@@ -2,6 +2,12 @@
     <h1 class="display-4 text-center">Apparel And Clothing Latest Coupons</h1>
     <hr class="my-4" />
     <div class="lead" style="font-size: 1.2em !important;">
+        <div class="alert alert-danger alert-dismissible fade show col-8" *ngIf="responseError" role="alert">
+            {{responseError}}
+            <button type="button" class="close" (click)="closeError()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-3">
@@ -18,6 +24,13 @@
                 </div>
                 <div class="col">
                     <div class="row mb-0">
+                        <div class="text-center m-5" *ngIf="!storeArr && isLoading">
+                            <div class="lds-facebook">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
                         <div class="col-sm-6 col-lg-2" [routerLink]="['/store', store.value._id]"
                             *ngFor="let store of storeArr | keyvalue">
                             <div class="brand-card">

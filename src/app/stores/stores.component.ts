@@ -24,13 +24,17 @@ export class StoresComponent implements OnInit {
         console.log(typeof (res.data));
         this.isLoading = false;
       }
-      else this.isLoading = false;
+      else this.errorHandler(res.message)
     })
   }
   loadMoreStores() {
     if (this.isLoading) return;
     this.loadStoreCallBack()
   };
-  errorHandler(err) { this.responseError = "Can't load " + err + " at the moment" }
+  errorHandler(err) {
+    this.isLoading = false;
+    this.responseError = err;
+    window.scrollTo(0, 0);
+  }
   closeError() { this.responseError = "" }
 }

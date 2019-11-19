@@ -18,5 +18,7 @@ router.get('/fetchStores', fetchCtrl.fetchStores);
 router.get('/fetchRandomStores', fetchCtrl.fetchRandomStores);
 router.get('/fetchCategories', fetchCtrl.fetchCategories);
 router.get('/searchQuery', fetchCtrl.searchQuery);
+router.get('/fetchBlogsWithLimit', fetchCtrl.fetchBlogsWithLimit);
+router.get('/fetchSingleBlog', fetchCtrl.fetchSingleBlog);
 
 module.exports = router;

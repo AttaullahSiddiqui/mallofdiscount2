@@ -16,7 +16,9 @@ module.exports = {
     fetchStores: fetchStores,
     fetchRandomStores: fetchRandomStores,
     fetchCategories: fetchCategories,
-    searchQuery: searchQuery
+    searchQuery: searchQuery,
+    fetchBlogsWithLimit: fetchBlogsWithLimit,
+    fetchSingleBlog: fetchSingleBlog
 };
 
 function fetchSlides(req, res) {
@@ -134,4 +136,25 @@ function searchQuery(req, res) {
                 else res.json(resHandler.respondError("Can't fetch Stores at the moment", -3));
             }
         });
+}
+function fetchBlogsWithLimit(req, res) {
+    Blog.
+        find({}, 'title img shortDes CreatedAt').
+        skip(Number(req.query.skipNo)).
+        limit(Number(req.query.limitNo)).
+        exec(function (err, blogs) {
+            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+            else {
+                if (blogs.length) res.json(resHandler.respondSuccess(blogs, "Blogs fetched successfully", 2));
+                else res.json(resHandler.respondError("Can't fetch Blogs at the moment", -3));
+            }
+        });
+}
+function fetchSingleBlog(req, res) {
+    Blog.
+        find({ _id: req.query._id }, function (err, blog) {
+            if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+            else if (!blog) res.json(resHandler.respondError("Unable to fetch blog at the moment", -3));
+            else res.json(resHandler.respondSuccess(blog, "Blog fetched successfully", 2));
+        })
 }

@@ -1,94 +1,28 @@
 <div class="jumbotron">
-    <div class="lead" style="span-size: 1.2em !important;">
+    <div class="lead" style="font-size: 1.2em !important;">
+        <div class="alert alert-danger alert-dismissible fade show col-8" *ngIf="responseError" role="alert">
+            {{responseError}}
+            <button type="button" class="close" (click)="closeError()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div class="container">
-            <div class="col">
-                <img src="https://www.mallofdiscount.com/images/blog/4hTsqkaRW1lM3rgIPMCxchlg.jpg">
+            <div class="text-center m-5" *ngIf="!blogNode && isFetching">
+                <div class="lds-facebook">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="col" *ngIf="blogNode">
+                <img [src]="blogNode.img">
                 <br>
                 <br>
                 <div>
-                    <h1 class="display-4 text-center">7 Recipes without Egg</h1>
+                    <h1 class="display-4 text-center">{{blogNode.title}}</h1>
                     <br>
-                    1)&nbsp; Cheese Prawns
-                    <br>Take a pan and pour 1/2 Tsp of
-                    oil and saute the Prawns by
-                    adding Black Pepper, Salt, Soy Sauce and 1 Tsp of Garlic and ginger paste. Cook
-                    for two minutes until their color turns brown/golden. Now Pan out them and
-                    sprinkle the crushed Cheese on the top. Then Pre-heat the oven at 180 degrees
-                    Celsius and leave for 20 minutes. After it gets heated place the Prawn with a
-                    cheese topping on it into an oven-proof tray and bake it for almost 15 minutes.
-                    Now take it off the oven and leave for 2 minutes for a tray to get chilled. Now
-                    Dish out the Prawns with your favorite Jalapeno sauce and eat Freshly Baked!
+                    {{blogNode.longDes}}
                     <br>
-                    2) Stuffed Potato with
-                    Sauce
-                    <br>Have some potatoes mainly 3 to
-                    4. Boil the potatoes for 20
-                    minutes and leave for 10 minutes till their steam gets disappear. Now take
-                    cheese bar and cut small pieces and place in the refrigerator cubes now peel
-                    off their skin, and cut in to the cubes. Take a fry pan and heat for 2 minutes.
-                    Meanwhile cut some onions and put some sauce in the bowl. Now fry spring onions
-                    with chili garlic sauce. Then place cheese inside your boiled potato and cover
-                    it with some additional potato on the top so that it may make a circle around.
-                    Finally, fry your boiled potatoes smoothly at a low fame. Heat till the sauce
-                    mixes with the potatoes. Then garnish with a coriander.
-                    <br>
-                    3) Ring Onions
-                    <br>Hold 2-3 onions and peel of
-                    its skin and leave it inside of
-                    vinegar for 30 minutes. Now take 2 cup of Flour, 2 cup of bread crumbs, add 2
-                    Tsp of salt and white pepper. Take a bowl and mix all of the ingredients well
-                    into it. Start adding water and make a paste of it. Now take the onions out of
-                    the vinegar and let it dry for 2 minutes on a normal room temperature. Finally,
-                    dip each onion spring. Pour oil into pan and heat for 10 minutes on a low
-                    flame. Now fry the onions by dipping it into paste and place gently for deep
-                    frying. Take them out as they turn the yellow color to brown. The mouthwatering
-                    Ring Onions are ready to eat!
-                    <br>
-                    4) Saucy Carrots and Cabbage:
-                    <br>To use fresh cabbage and
-                    carrot and wash first. Cut it into
-                    cubic style. Now place a pan at a low flame and place some water inside. Add
-                    vegetables and leave for 20 minutes. Now take vegetables out into the bowl and
-                    by adding black pepper, salt, green chilies and olive oil. Mix well and add
-                    oregano to them. You can also add Jalapenos and peanuts if you like to have.
-                    Then boil some rice and finally, dish out with a topping of cheese. You can
-                    also enjoy with a Lemonade of Mint flavor too.
-                    <br>
-                    5) White Pasta
-
-                    <br>Take a pan, add 2 ounce of
-                    Milk, 2 Tsp of Flour, 1/2 tsp of
-                    salt and 200 grams of crushed Mozzarella. Now mix it well and a paste will be
-                    made out of it could be kept aside. Now cook this paste by pouring 1 tablespoon
-                    oil into a pan. Now take any shape of Pasta and boil for 25 minutes. Then wash
-                    it with cold water. Place Layer of pasta by adding sauce and leave for 10
-                    minutes. Now put it into a pre-heated oven for 5 minutes until the cheese turns
-                    brown. No dish out the pasta and finally pour the left over White sauce as a
-                    topping. White creamy Pasta is ready to eat.
-                    <br>
-                    6) Mix Vegetables
-                    <br>Take Vegetables that include
-                    Beans, Potatoes, corns, by
-                    cutting them and sauté it with coriander and mint leaves. You can also take
-                    vegetables which you prefer in a day to day schedule. Now add 2 tsp of salt,
-                    2tsp of ginger, chicken powder and at the end; before dishing it out, add
-                    chopped onions and leave it for approximately 30 minutes in steam. Until all
-                    the vegetables cook well slow the flame of the stove and dish out the
-                    vegetables. At last garnish the mix vegetable platter with green chilies at the
-                    top. You can also serve with a smoothie or a favorite Cola.
-                    <br>
-                    7) Cauliflower with
-                    Beans
-                    <br>First of all, take a bowl and
-                    add boiled beans. Now add
-                    Cauliflower in it. Then add hot and spicy sauce and Olive oil. Mix it till 20
-                    minutes with spoon, meanwhile on the other hand take fry pan and fry onions and
-                    ginger with garlic paste for more than 5 minutes. At last add the bowl product
-                    and serve it with the hot and tender fried items of the pan. Place it on the
-                    table and separately place chocolate fudge cake for a sweet treat after meal.
-                    <br>
-                    <p>Written by: <a href="https://www.facebook.com/hadiqa.waseemkhan">Hadiqa
-                            Waseem Khan</a>
                 </div>
             </div>
         </div>

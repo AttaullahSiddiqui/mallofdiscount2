@@ -22,7 +22,7 @@ export const MenuRoutes: Routes = [
     { path: 'category', component: CategoryComponent },
     { path: 'category/:id', component: CategoryComponent },
     { path: 'store/:id', component: StoreComponent },
-    { path: 'blog', component: BlogComponent },
+    { path: 'blog/:id', component: BlogComponent },
     {
         path: '', redirectTo: '/home', pathMatch: 'full',
     }

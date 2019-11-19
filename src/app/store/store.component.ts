@@ -20,6 +20,7 @@ export class StoreComponent implements OnInit {
   codeCopied = false;
   editObj;
   storeArray: [] = null;
+  isBusy = false;
   currentDate = Date.now();
   constructor(private route: ActivatedRoute, private _dataService: DataService, private modalService: BsModalService) { }
 
@@ -28,8 +29,7 @@ export class StoreComponent implements OnInit {
       var abc = paramMap.get('id');
       this.loadCoupons(abc);
       this.loadStoreData(abc);
-    }
-    )
+    })
   }
   openModal(template: TemplateRef<any>, couponNode) {
     this.editObj = { ...couponNode };
@@ -60,10 +60,11 @@ export class StoreComponent implements OnInit {
     this.codeCopied = true;
   }
   loadCoupons(id) {
+    if (this.isBusy) return;
+    this.isBusy = true;
     this._dataService.fetchWithQuery("/userDisplay/fetchCoupons", id).subscribe(res => {
       if (res.data) {
         this.couponsArray = res.data;
-        console.log(res.data)
         for (var i = 0; i < res.data.length; i++) {
           var orginalDate = this.couponsArray[i]['expDate'];
           var singleObj: Object = this.couponsArray[i];
@@ -71,6 +72,7 @@ export class StoreComponent implements OnInit {
           singleObj['expDate'] = fff;
           this.couponsArray[i] = singleObj;
         }
+        this.isBusy = false;
       }
       else this.errorHandler(res.message)
     })
@@ -88,13 +90,9 @@ export class StoreComponent implements OnInit {
     })
   }
   secondTabData(id) {
-    console.log(id)
     this._dataService.fetchWithQuery("/userDisplay/fetchStores", id).subscribe(res => {
-      if (res.data) {
-        this.storeArray = res.data;
-        console.log(res.data)
-      }
-      else console.log(res.message)
+      if (res.data) this.storeArray = res.data;
+      else this.errorHandler(res.message)
     })
   }
   loadAnotherStore(id) {
@@ -106,6 +104,10 @@ export class StoreComponent implements OnInit {
     this.loadStoreData(id)
     this.secondTabData(id);
   }
-  errorHandler(err) { this.responseError = "Can't load " + err + " at the moment" }
+  errorHandler(err) {
+    this.isBusy = false;
+    this.responseError = err;
+    window.scrollTo(0, 0);
+  }
   closeError() { this.responseError = "" }
 }
