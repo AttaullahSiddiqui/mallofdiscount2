@@ -1,6 +1,6 @@
 <div class="jumbotron">
-    <div class="lead" style="font-size: 1.2em !important;">
-        <div class="alert alert-danger alert-dismissible fade show col-8" *ngIf="responseError" role="alert">
+    <div class="lead" style="font-size: 1.4em !important;">
+        <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
             {{responseError}}
             <button type="button" class="close" (click)="closeError()" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col" *ngIf="blogNode">
-                <img [src]="blogNode.img">
+                <img [src]="blogNode.img" style="width: 100%;">
                 <br>
                 <br>
                 <div>

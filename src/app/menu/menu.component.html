@@ -1,10 +1,10 @@
 <div id="mySidenav" class="sidenav">
   <a class="closebtn" (click)="closeNav($event)">&times;</a>
   <ul class="list-group">
-    <li class="list-group-item">Home</li>
-    <li class="list-group-item">Stores</li>
-    <li class="list-group-item">Categories</li>
-    <li class="list-group-item">Blogs</li>
+    <li class="list-group-item" routerLink="/home" (click)="closeNav($event)">Home</li>
+    <li class="list-group-item" routerLink="/stores" (click)="closeNav($event)">Stores</li>
+    <li class="list-group-item" routerLink="/categories" (click)="closeNav($event)">Categories</li>
+    <li class="list-group-item" routerLink="/blogs" (click)="closeNav($event)">Blogs</li>
   </ul>
 </div>
 <nav class="header_area">
@@ -15,8 +15,6 @@
           class="logoImg" /></a>
       <a href="" class="button-collapse" (click)="openNav($event)">
         <i class="fa fa-bars"></i></a>
-      <!--<a href="" class="waves-effect btn post_btn sm_post_btn modal-trigger"><i class="ion-plus"></i>Add
-        Post</a> -->
       <ul class="left_menu hide-on-med-and-down">
         <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
         <li><a routerLink="/stores" routerLinkActive="active">Stores</a></li>
