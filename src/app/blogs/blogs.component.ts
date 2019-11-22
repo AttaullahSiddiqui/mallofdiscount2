@@ -21,7 +21,6 @@ export class BlogsComponent implements OnInit {
     this._dataService.fetchAPIWithLimit("/userDisplay/fetchBlogsWithLimit", 6, "", this.skipNo).subscribe(res => {
       if (res.data) {
         this.blogsArr = { ...this.blogsArr, ...res.data };
-        console.log(res.data);
         this.isFetching = false;
       }
       else {

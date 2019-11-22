@@ -1,4 +1,4 @@
-<ngb-carousel *ngIf="slideArray" class="height87" interval="2500" [pauseOnHover]="false">
+<ngb-carousel *ngIf="slideArray" class="height87" interval="3000" [pauseOnHover]="false">
     <ng-template ngbSlide *ngFor="let slide of slideArray | keyvalue">
         <img [src]="slide.value.img" class="height87" alt="Random first slide">
     </ng-template>
@@ -131,7 +131,8 @@
                             <div></div>
                         </div>
                     </div>
-                    <div class="row valign-wrapper popular_item" *ngFor="let blog of blogArray | keyvalue">
+                    <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value._id]"
+                        *ngFor="let blog of blogArray | keyvalue">
                         <div class="col-3 p_img">
                             <div class="manAvatar">
                                 <img [src]="blog.value.img" class="customImgRound">

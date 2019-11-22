@@ -20,8 +20,6 @@ export class StoresComponent implements OnInit {
       if (res.data) {
         this.storeArray = res.data;
         this.storeArray = Array.from(new Set(this.storeArray))
-        console.log(res.data)
-        console.log(typeof (res.data));
         this.isLoading = false;
       }
       else this.errorHandler(res.message)

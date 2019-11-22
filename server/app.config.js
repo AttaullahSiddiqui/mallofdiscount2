@@ -3,6 +3,7 @@ const config = {
     db: {
         development: 'mongodb://localhost:27017/duarestaurant',
         production: 'mongodb+srv://attaullah:mongocluster@cluster0-jrlh5.mongodb.net/test?retryWrites=true&w=majority'
+        // production: 'mongodb+srv://attaullah:mongocluster@cluster0-jrlh5.mongodb.net/test?retryWrites=true&w=majority'
     },
     JWT: {
         secretKey: 'hfgs97454089jbjsdfsdvf87032603jb'

@@ -13,8 +13,11 @@ export class MenuComponent implements AfterViewInit {
   private changes: MutationObserver;
   public element: HTMLElement;
   switch = false;
+  mouseLoc = false;
   noResult = false;
   storeArray = null;
+  blogArray = null;
+  searchBox = null;
   constructor(private _dataService: DataService, private router: Router, @Inject(DOCUMENT) _document?: any) {
     this.changes = new MutationObserver((mutations) => {
       this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
@@ -26,22 +29,25 @@ export class MenuComponent implements AfterViewInit {
     });
   }
   ngOnDestroy(): void { this.changes.disconnect() }
-  ngAfterViewInit() { }
-
+  ngAfterViewInit() {
+    this._dataService.fetchOnlyLimit("/userDisplay/fetchTopBlogs", 4).subscribe(res => {
+      if (res.data) this.blogArray = res.data;
+      else console.log(res.message)
+    });
+  }
   searchFunc(queri) {
     if (!queri) return;
     this.noResult = false;
     this.storeArray = null;
     this._dataService.fetchAPIWithLimit("/userDisplay/searchQuery", 10, queri, "").subscribe(res => {
-      if (res.data) {
-        this.storeArray = res.data;
-        console.log(res.data)
-      }
-      else {
-        console.log(res.message);
-        this.noResult = true;
-      }
+      if (res.data) this.storeArray = res.data;
+      else this.noResult = true;
     })
+  }
+  focusOutFunc() {
+    setTimeout(() => {
+      this.switch = false
+    }, 100);
   }
   openNav(e) {
     e.preventDefault();

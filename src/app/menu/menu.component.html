@@ -27,9 +27,9 @@
         <li class="search_min">
           <ul class="search_from">
             <li class="notifications follow">
-              <input (focus)="switch=true" (input)="searchFunc(searchBox)" (focusout)="switch=false"
+              <input (input)="searchFunc(searchBox)" (focus)="switch=true" (focusout)="focusOutFunc()"
                 [(ngModel)]="searchBox" placeholder="Search By Brand Name Or Website" type="text">
-              <div class="dropdown-menu" style="width: 350px;" *ngIf="switch && searchBox">
+              <div class="dropdown-menu" style="width: 350px;" *ngIf="searchBox && switch">
                 <table class="table table-responsive-sm table-hover table-outline mb-0">
                   <tbody>
                     <tr>
@@ -47,12 +47,12 @@
                       </div>
                     </tr>
                     <tr *ngFor="let store of storeArray | keyvalue">
-                      <td class="text-center">
+                      <td class="text-center" [routerLink]="['/store', store.value._id]">
                         <div class="avatar">
                           <img [src]="store.value.img" class="rounded-circle">
                         </div>
                       </td>
-                      <td>
+                      <td [routerLink]="['/store', store.value._id]">
                         <div>{{store.value.name}}</div>
                         <div class="small text-muted">
                           <span>Store</span>
@@ -62,87 +62,8 @@
                   </tbody>
                 </table>
               </div>
-              <!-- <ul class="dropdown-content" style="left:0 !important;max-height: 75vh;overflow-y: scroll;">
-                <li class="hed_notic">Search Results <span><i class="ion-ios-gear-outline"></i></span></li>
-                <li>
-                    <div class="media">
-                      <img src="../../assets/images/profile-9.jpg" alt="" class="circle responsive-img">
-                      <div class="media_body">
-                        <p><b>Toyota Motors</b></p>
-                        <div class="btn_group">
-                          <span class="waves-effect follow_b">Category</span>
-                        </div>
-                      </div>
-                    </div>
-                </li>
-                <li>
-                  <a>
-                    <div class="media">
-                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
-                      <div class="media_body">
-                        <p><b>Toyota Motors</b></p>
-                        <div class="btn_group">
-                          <span class="waves-effect">Store</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <div class="media">
-                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
-                      <div class="media_body">
-                        <p><b>Toyota Motors</b></p>
-                        <div class="btn_group">
-                          <span class="waves-effect confirm">Coupon</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <div class="media">
-                      <img src="../../assets/images/profile-9.jpg" alt="" class="circle responsive-img">
-                      <div class="media_body">
-                        <p><b>Toyota Motors</b></p>
-                        <div class="btn_group">
-                          <span class="waves-effect follow_b">Category</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <div class="media">
-                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
-                      <div class="media_body">
-                        <p><b>Toyota Motors</b></p>
-                        <div class="btn_group">
-                          <span class="waves-effect">Store</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <div class="media">
-                      <img src="../../assets/images/profile-2.jpg" alt="" class="circle responsive-img">
-                      <div class="media_body">
-                        <p><b>Toyota Motors</b></p>
-                        <div class="btn_group">
-                          <span class="waves-effect confirm">Coupon</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul> -->
             </li>
-            <li><a href="" class="search_icon"><i class="icon-magnifier"></i></a></li>
+            <li><a class="search_icon"><i class="icon-magnifier"></i></a></li>
           </ul>
         </li>
       </ul>
@@ -162,44 +83,21 @@
     <div class="col l3 m6 footer_col">
       <div class="popular_posts">
         <h3 class="categories_tittle text-center">Popular Blogs</h3>
-        <div class="row valign-wrapper popular_item">
-          <div class="col-3 p_img">
-            <a href="#">
-              <img src="../../assets/images/recent-post-1.jpg" alt="" class="circle responsive-img">
-            </a>
-          </div>
-          <div class="col s9 p_content">
-            <a href="">6 Signs That Your Skin Is Lacking Water</a>
+        <div class="text-center m-5" *ngIf="!blogArray">
+          <div class="lds-ripple">
+            <div></div>
+            <div></div>
           </div>
         </div>
-        <div class="row valign-wrapper popular_item">
+        <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value._id]"
+          *ngFor="let blog of blogArray | keyvalue">
           <div class="col-3 p_img">
-            <a href="#">
-              <img src="../../assets/images/recent-post-2.jpg" alt="" class="circle responsive-img">
-            </a>
+            <div class="manAvatar">
+              <img [src]="blog.value.img" class="customImgRound">
+            </div>
           </div>
           <div class="col s9 p_content">
-            <a href="">4 Winter Detox Which You Must Try</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col-3 p_img">
-            <a href="#">
-              <img src="../../assets/images/recent-post-3.jpg" alt="" class="circle responsive-img">
-            </a>
-          </div>
-          <div class="col s9 p_content">
-            <a href="">10 Most Beautiful Places Of The World</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col-3 p_img">
-            <a href="#">
-              <img src="../../assets/images/recent-post-4.jpg" alt="" class="circle responsive-img">
-            </a>
-          </div>
-          <div class="col s9 p_content">
-            <a href="">Advertising A Blessing Or A Curse</a>
+            <a>{{blog.value.title}}</a>
           </div>
         </div>
       </div>
@@ -277,30 +175,3 @@
     � 2019 <a href="">codesArrival</a>. All rights reserved.
   </div>
 </footer>
-
-
-
-
-<!-- 
-<div class="card">
-    <div class="row">
-        <div class="col-md-2 col-sm-4 col-xs-4 text-center" style="height: 200px !important;">
-            <img src="../../assets/img/avatars/danish2.jpg" class="rounded-circle imgTh" alt="">
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-4 text-center" style="height: 200px !important;">
-            <img src="../../assets/img/avatars/x1.jpg" class="rounded-circle imgTh" alt="">
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-4 text-center" style="height: 200px !important;">
-            <img src="../../assets/img/avatars/x2.jpg" class="rounded-circle imgTh" alt="">
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-4 text-center" style="height: 200px !important;">
-            <img src="../../assets/img/avatars/x3.jpg" class="rounded-circle imgTh" alt="">
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-4 text-center" style="height: 200px !important;">
-            <img src="../../assets/img/avatars/danish2.jpg" class="rounded-circle imgTh" alt="">
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-4 text-center" style="height: 200px !important;">
-            <img src="../../assets/img/avatars/x1.jpg" class="rounded-circle imgTh" alt="">
-        </div>
-    </div>
-</div> -->

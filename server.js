@@ -33,7 +33,7 @@ app.use('/userDisplay', appRoutes);
 // mongoose.connect(CONFIG.local['url'], { useNewUrlParser: true, useCreateIndex: true });
 mongoose.connect(CONFIG.db['production'], { useNewUrlParser: true, useCreateIndex: true });
 mongoose.connection.on('error', (err) => {
-    console.log(`Connection Error on ${mode} ${err}`);
+    console.log(`Connection Error on ${err}`);
     process.exit(-1);
 });
 mongoose.connection.on('connected', () => {

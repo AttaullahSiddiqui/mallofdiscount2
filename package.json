@@ -1,7 +1,7 @@
 {
-  "name": "@codesarrival/codesarrival-app",
+  "name": "@codesarrival/mallofdiscount",
   "version": "1.0.0",
-  "description": "Codes Arrival application",
+  "description": "MallOfDiscount application",
   "author": {
     "name": "Attaullah Siddiqui",
     "url": "https://web.facebook.com/mattaullah2",
@@ -14,7 +14,7 @@
       "url": "https://google.com"
     }
   ],
-  "homepage": "http://localhost:4200/#/dashboard",
+  "homepage": "http://mallofdiscount.herokuapp.com/home",
   "copyright": "Copyright 2019",
   "license": "MIT",
   "scripts": {
