@@ -15,4 +15,7 @@ router.get('/searchQuery', fetchCtrl.searchQuery);
 router.get('/fetchBlogsWithLimit', fetchCtrl.fetchBlogsWithLimit);
 router.get('/fetchSingleBlog', fetchCtrl.fetchSingleBlog);
 
+
+router.post('/increaseBlogViews', fetchCtrl.increaseBlogViews);
+
 module.exports = router;

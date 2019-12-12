@@ -16,7 +16,8 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
       var abc = paramMap.get('id');
-      this.loadBlog(abc)
+      this.loadBlog(abc);
+      this._dataService.postAPI("/userDisplay/increaseBlogViews", { id: abc }).subscribe(res => { })
     })
   }
   loadBlog(id) {

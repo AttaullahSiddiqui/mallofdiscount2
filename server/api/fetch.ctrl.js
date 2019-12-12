@@ -18,7 +18,8 @@ module.exports = {
     fetchCategories: fetchCategories,
     searchQuery: searchQuery,
     fetchBlogsWithLimit: fetchBlogsWithLimit,
-    fetchSingleBlog: fetchSingleBlog
+    fetchSingleBlog: fetchSingleBlog,
+    increaseBlogViews: increaseBlogViews
 };
 
 function fetchSlides(req, res) {
@@ -139,7 +140,7 @@ function searchQuery(req, res) {
 }
 function fetchBlogsWithLimit(req, res) {
     Blog.
-        find({}, 'title img shortDes CreatedAt').
+        find({}, 'title img shortDes views CreatedAt').
         skip(Number(req.query.skipNo)).
         limit(Number(req.query.limitNo)).
         exec(function (err, blogs) {
@@ -157,4 +158,13 @@ function fetchSingleBlog(req, res) {
             else if (!blog) res.json(resHandler.respondError("Unable to fetch blog at the moment", -3));
             else res.json(resHandler.respondSuccess(blog, "Blog fetched successfully", 2));
         })
+}
+function increaseBlogViews(req, res) {
+    Blog.findOneAndUpdate({ _id: req.body.id }, { $inc: { 'views': 1 } }).exec(function (err, blogs) {
+        if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+        else {
+            if (blogs.length) res.json(resHandler.respondSuccess(blogs, "Blogs fetched successfully", 2));
+            else res.json(resHandler.respondError("Can't fetch Blogs at the moment", -3));
+        }
+    });
 }

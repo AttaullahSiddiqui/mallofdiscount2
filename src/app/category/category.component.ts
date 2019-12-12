@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 export class CategoryComponent implements OnInit {
   responseError = "";
   categoryArr = null;
+  selectCat = null;
   storeArr = null;
   isLoading = false;
   constructor(private _dataService: DataService, private route: ActivatedRoute) { }

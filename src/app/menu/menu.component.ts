@@ -47,7 +47,7 @@ export class MenuComponent implements AfterViewInit {
   focusOutFunc() {
     setTimeout(() => {
       this.switch = false
-    }, 100);
+    }, 300);
   }
   openNav(e) {
     e.preventDefault();

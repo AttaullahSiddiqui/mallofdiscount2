@@ -23,9 +23,12 @@
                         <a><img [src]="blog.value.img"></a>
                     </div>
                     <div class="col-6">
-                        <h3><a [routerLink]="['/blog', blog.value._id]">{{blog.value.title}}</a></h3>
-                        <span><b>Date</b> {{blog.value.CreatedAt | date}}</span>&nbsp;&nbsp;
-                        <span><b>By :</b> danish</span>
+                        <a [routerLink]="['/blog', blog.value._id]">
+                            <h3>{{blog.value.title}}</h3>
+                        </a>
+                        <span><b>Date:</b>&nbsp; {{blog.value.CreatedAt | date}}</span>&nbsp;&nbsp;
+                        <span><b>By :</b> Danish</span>&nbsp;&nbsp;
+                        <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views}}</span>
                         <br>
                         <br>
                         <div class="blogTxt">
