@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-stores',
@@ -10,16 +11,19 @@ export class StoresComponent implements OnInit {
   responseError = "";
   storeArray: any = null;
   isLoading = false;
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService, private titleService: Title) { }
 
-  ngOnInit() { this.loadStoreCallBack() };
+  ngOnInit() {
+    this.loadStoreCallBack();
+    this.titleService.setTitle("Stores");
+  };
 
   loadStoreCallBack() {
     this.isLoading = true;
     this._dataService.fetchOnlyLimit("/userDisplay/fetchRandomStores", 20).subscribe(res => {
       if (res.data) {
         this.storeArray = res.data;
-        this.storeArray = Array.from(new Set(this.storeArray))
+        this.storeArray = Array.from(new Set(this.storeArray));
         this.isLoading = false;
       }
       else this.errorHandler(res.message)

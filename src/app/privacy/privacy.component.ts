@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-privacy',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivacyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { this.titleService.setTitle("Privacy") }
 
 }

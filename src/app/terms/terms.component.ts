@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-terms',
@@ -6,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./terms.component.scss']
 })
 export class TermsComponent implements OnInit {
-  constructor() { }
-  ngOnInit() { }
+  constructor(private titleService: Title) { }
+  ngOnInit() { this.titleService.setTitle("Terms & Conditions"); }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-blogs',
@@ -11,10 +12,11 @@ export class BlogsComponent implements OnInit {
   blogsArr: {} = null;
   skipNo = 0;
   isFetching = false;
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService, private titleService: Title) { }
 
   ngOnInit() {
-    this.fetchBlogs()
+    this.fetchBlogs();
+    this.titleService.setTitle("Blogs");
   }
   fetchBlogs() {
     this.isFetching = true;

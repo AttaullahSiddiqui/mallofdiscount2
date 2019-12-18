@@ -1,5 +1,5 @@
 <div class="jumbotron">
-    <h1 class="display-4 text-center">Apparel And Clothing Latest Coupons</h1>
+    <h1 class="display-4 text-center">{{selectedCat}}</h1>
     <hr class="my-4" />
     <div class="lead" style="font-size: 1.2em !important;">
         <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
@@ -31,7 +31,7 @@
                                 <div></div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-2" [routerLink]="['/store', store.value._id]"
+                        <div class="col-sm-6 col-lg-2 storeArrr" [routerLink]="['/store', store.value._id]"
                             *ngFor="let store of storeArr | keyvalue">
                             <div class="brand-card">
                                 <div class="brand-card-header">

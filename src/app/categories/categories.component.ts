@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-categories',
@@ -10,9 +11,10 @@ export class CategoriesComponent implements OnInit {
   responseError = "";
   categoryArr = null;
   isLoading = false;
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService, private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle("Categories");
     this.isLoading = true;
     this._dataService.fetchAPI("/userDisplay/fetchCategories").subscribe(res => {
       if (res.data) {

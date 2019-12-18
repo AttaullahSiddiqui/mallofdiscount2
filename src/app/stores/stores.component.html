@@ -17,7 +17,7 @@
                                     <img [src]="store.value.img" class="circle responsive-img">
                                     <div class="media_body">
                                         <p>{{store.value.name}}</p>
-                                        <h6>{{store.value.shortDes}}</h6>
+                                        <h6 [innerHTML]="store.value.shortDes"></h6>
                                     </div>
                                 </div>
                             </li>

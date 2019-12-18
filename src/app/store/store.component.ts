@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-store',
@@ -22,7 +23,7 @@ export class StoreComponent implements OnInit {
   storeArray: [] = null;
   isBusy = false;
   currentDate = Date.now();
-  constructor(private route: ActivatedRoute, private _dataService: DataService, private modalService: BsModalService) { }
+  constructor(private route: ActivatedRoute, private _dataService: DataService, private modalService: BsModalService, private titleService: Title) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
@@ -84,6 +85,7 @@ export class StoreComponent implements OnInit {
         this.storeDetail = res.data['0']['shortDes'];
         this.storeName = res.data['0']['name'];
         this.storeId = res.data['0']['_id'];
+        this.titleService.setTitle(this.storeName);
         this.secondTabData(res.data['0']['categoryRef'][0])
       }
       else this.errorHandler(res.message)
